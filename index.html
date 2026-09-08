@@ -171,12 +171,54 @@
         </div>
     </section>
 
+    <!-- دکمه شناور ارتباط در شبکه‌های اجتماعی -->
+    <div class="social-float-container">
+        <div class="social-menu" id="socialMenu">
+            <!-- ایتا -->
+            <a href="https://eitaa.com/YOUR_ID" target="_blank" rel="noopener" class="social-item eitaa" title="ایتا">
+                <span class="social-label">مشاوره در ایتا</span>
+                <div class="social-icon"><i class="fa-solid fa-paper-plane"></i></div>
+            </a>
+            <!-- روبیکا -->
+            <a href="https://rubika.ir/YOUR_ID" target="_blank" rel="noopener" class="social-item rubika" title="روبیکا">
+                <span class="social-label">مشاوره در روبیکا</span>
+                <div class="social-icon"><i class="fa-solid fa-comments"></i></div>
+            </a>
+            <!-- واتساپ -->
+            <a href="https://wa.me/989127442394" target="_blank" rel="noopener" class="social-item whatsapp" title="واتساپ">
+                <span class="social-label">مشاوره در واتساپ</span>
+                <div class="social-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            </a>
+            <!-- تلگرام -->
+            <a href="https://t.me/YOUR_ID" target="_blank" rel="noopener" class="social-item telegram" title="تلگرام">
+                <span class="social-label">مشاوره در تلگرام</span>
+                <div class="social-icon"><i class="fa-brands fa-telegram"></i></div>
+            </a>
+        </div>
+
+        <!-- دکمه اصلی شناور -->
+        <button class="social-main-btn" id="socialMainBtn" aria-label="ارتباط در شبکه‌های اجتماعی">
+            <i class="fa-solid fa-comments icon-open"></i>
+            <i class="fa-solid fa-xmark icon-close"></i>
+        </button>
+    </div>
+
     <!-- فوتر -->
     <footer>
         <p>© تمامی حقوق این وب‌سایت متعلق به دفتر وکالت می‌باشد.</p>
     </footer>
 
     <!-- اسکریپت جاوااسکریپت -->
+    <script>
+        // اسکریپت باز و بسته‌شدن منوی شبکه‌های اجتماعی
+        const socialMainBtn = document.getElementById('socialMainBtn');
+        const socialMenu = document.getElementById('socialMenu');
+
+        socialMainBtn.addEventListener('click', () => {
+            socialMainBtn.classList.toggle('active');
+            socialMenu.classList.toggle('active');
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
