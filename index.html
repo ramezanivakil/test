@@ -25,7 +25,40 @@
                 <li><a href="#contact">تماس با ما</a></li>
             </ul>
 
-            <a href="#contact" class="btn-gold nav-btn">مشاوره حضوری</a>
+            <div class="header-left-action">
+                <a href="#contact" class="btn-gold nav-btn">مشاوره حضوری</a>
+
+                <!-- منوی پیام‌رسان‌ها در هدر بالای صفحه سمت چپ -->
+                <div class="social-header-container">
+                    <button class="social-header-btn" id="socialMainBtn" aria-label="ارتباط در شبکه‌های اجتماعی">
+                        <i class="fa-solid fa-comments icon-open"></i>
+                        <i class="fa-solid fa-xmark icon-close"></i>
+                    </button>
+
+                    <div class="social-menu-top" id="socialMenu">
+                        <!-- ایتا -->
+                        <a href="https://eitaa.com/YOUR_ID" target="_blank" rel="noopener" class="social-item" title="ایتا">
+                            <span class="social-label">مشاوره در ایتا</span>
+                            <div class="social-icon"><img src="images/eitaa.png" alt="ایتا"></div>
+                        </a>
+                        <!-- روبیکا -->
+                        <a href="https://rubika.ir/YOUR_ID" target="_blank" rel="noopener" class="social-item" title="روبیکا">
+                            <span class="social-label">مشاوره در روبیکا</span>
+                            <div class="social-icon"><img src="images/rubika.png" alt="روبیکا"></div>
+                        </a>
+                        <!-- واتساپ -->
+                        <a href="https://wa.me/989127442394" target="_blank" rel="noopener" class="social-item" title="واتساپ">
+                            <span class="social-label">مشاوره در واتساپ</span>
+                            <div class="social-icon"><img src="images/whatsapp.png" alt="واتساپ"></div>
+                        </a>
+                        <!-- تلگرام -->
+                        <a href="https://t.me/YOUR_ID" target="_blank" rel="noopener" class="social-item" title="تلگرام">
+                            <span class="social-label">مشاوره در تلگرام</span>
+                            <div class="social-icon"><img src="images/telegram.png" alt="تلگرام"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -171,38 +204,6 @@
         </div>
     </section>
 
-    <!-- دکمه شناور ارتباط در شبکه‌های اجتماعی -->
-    <div class="social-float-container">
-        <div class="social-menu" id="socialMenu">
-            <!-- ایتا -->
-            <a href="https://eitaa.com/YOUR_ID" target="_blank" rel="noopener" class="social-item eitaa" title="ایتا">
-                <span class="social-label">مشاوره در ایتا</span>
-                <div class="social-icon"><i class="fa-solid fa-paper-plane"></i></div>
-            </a>
-            <!-- روبیکا -->
-            <a href="https://rubika.ir/YOUR_ID" target="_blank" rel="noopener" class="social-item rubika" title="روبیکا">
-                <span class="social-label">مشاوره در روبیکا</span>
-                <div class="social-icon"><i class="fa-solid fa-comments"></i></div>
-            </a>
-            <!-- واتساپ -->
-            <a href="https://wa.me/989127442394" target="_blank" rel="noopener" class="social-item whatsapp" title="واتساپ">
-                <span class="social-label">مشاوره در واتساپ</span>
-                <div class="social-icon"><i class="fa-brands fa-whatsapp"></i></div>
-            </a>
-            <!-- تلگرام -->
-            <a href="https://t.me/YOUR_ID" target="_blank" rel="noopener" class="social-item telegram" title="تلگرام">
-                <span class="social-label">مشاوره در تلگرام</span>
-                <div class="social-icon"><i class="fa-brands fa-telegram"></i></div>
-            </a>
-        </div>
-
-        <!-- دکمه اصلی شناور -->
-        <button class="social-main-btn" id="socialMainBtn" aria-label="ارتباط در شبکه‌های اجتماعی">
-            <i class="fa-solid fa-comments icon-open"></i>
-            <i class="fa-solid fa-xmark icon-close"></i>
-        </button>
-    </div>
-
     <!-- فوتر -->
     <footer>
         <p>© تمامی حقوق این وب‌سایت متعلق به دفتر وکالت می‌باشد.</p>
@@ -210,13 +211,23 @@
 
     <!-- اسکریپت جاوااسکریپت -->
     <script>
-        // اسکریپت باز و بسته‌شدن منوی شبکه‌های اجتماعی
         const socialMainBtn = document.getElementById('socialMainBtn');
         const socialMenu = document.getElementById('socialMenu');
 
-        socialMainBtn.addEventListener('click', () => {
+        socialMainBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             socialMainBtn.classList.toggle('active');
             socialMenu.classList.toggle('active');
+        });
+
+        // بستن منو با کلیک در هر جای دیگر صفحه
+        document.addEventListener('click', () => {
+            socialMainBtn.classList.remove('active');
+            socialMenu.classList.remove('active');
+        });
+
+        socialMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
         });
     </script>
     <script src="script.js"></script>
