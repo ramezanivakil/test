@@ -147,12 +147,6 @@ header {
 .header-left-action {
     display: flex;
     align-items: center;
-    gap: 15px;
-}
-
-.nav-btn {
-    padding: 0.5rem 1.2rem;
-    font-size: var(--fs-nav);
 }
 
 /* ==========================================
@@ -162,7 +156,7 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-    direction: ltr; /* جهت قرارگیری آیکون‌ها از چپ به راست */
+    direction: ltr;
 }
 
 .header-social-item {
@@ -525,7 +519,7 @@ footer {
    ۱۱. تنظیمات واکنش‌گرا (Responsive)
    ========================================== */
 @media screen and (max-width: 992px) {
-    .nav-links, .nav-btn {
+    .nav-links {
         display: none;
     }
 
