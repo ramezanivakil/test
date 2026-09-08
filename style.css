@@ -147,7 +147,7 @@ header {
 .header-left-action {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
 .nav-btn {
@@ -156,106 +156,40 @@ header {
 }
 
 /* ==========================================
-   ۵. منوی شبکه‌های اجتماعی در هدر سمت چپ (Header Left)
+   ۵. نوار مستقیم آیکون‌های پیام‌رسان در هدر سمت چپ
    ========================================== */
-.social-header-container {
-    position: relative;
+.header-social-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    direction: ltr; /* جهت قرارگیری آیکون‌ها از چپ به راست */
 }
 
-.social-header-btn {
-    width: 44px;
-    height: 44px;
+.header-social-item {
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    background: var(--gold-gradient);
-    color: #ffffff;
-    border: none;
-    box-shadow: 0 4px 12px var(--gold-shadow);
-    cursor: pointer;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-.social-header-btn:hover {
-    transform: scale(1.08);
-}
-
-.social-header-btn .icon-close {
-    display: none;
-}
-
-.social-header-btn.active .icon-open {
-    display: none;
-}
-
-.social-header-btn.active .icon-close {
-    display: block;
-}
-
-.social-menu-top {
-    position: absolute;
-    top: 55px;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1001;
-}
-
-.social-menu-top.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.social-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-}
-
-.social-item:hover {
-    transform: translateX(5px);
-}
-
-.social-label {
-    background-color: #ffffff;
-    color: #0f172a;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-family: var(--font-body);
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     border: 1px solid var(--border-color);
-}
-
-.social-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
     overflow: hidden;
     flex-shrink: 0;
 }
 
-.social-icon img {
+.header-social-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.header-social-item:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+    border-color: var(--gold-primary);
 }
 
 /* ==========================================
@@ -615,7 +549,6 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    /* نمایش پیام راهنمای تماس فقط در دستگاه‌های موبایل و تبلت */
     .mobile-only-msg {
         display: block;
     }
@@ -628,5 +561,14 @@ footer {
 
     .contact-container {
         padding: 1.5rem;
+    }
+
+    .header-social-item {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .header-social-bar {
+        gap: 6px;
     }
 }
