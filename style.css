@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
    ۴. هدر (Header)
    ========================================== */
 header {
-    background-color: rgba(255, 255, 255, 0.9) !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -144,13 +144,122 @@ header {
     color: var(--gold-primary);
 }
 
+.header-left-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .nav-btn {
     padding: 0.5rem 1.2rem;
     font-size: var(--fs-nav);
 }
 
 /* ==========================================
-   ۵. لوگوی چرخشی
+   ۵. منوی شبکه‌های اجتماعی در هدر سمت چپ (Header Left)
+   ========================================== */
+.social-header-container {
+    position: relative;
+}
+
+.social-header-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px var(--gold-shadow);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-header-btn:hover {
+    transform: scale(1.08);
+}
+
+.social-header-btn .icon-close {
+    display: none;
+}
+
+.social-header-btn.active .icon-open {
+    display: none;
+}
+
+.social-header-btn.active .icon-close {
+    display: block;
+}
+
+.social-menu-top {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.social-menu-top.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-item:hover {
+    transform: translateX(5px);
+}
+
+.social-label {
+    background-color: #ffffff;
+    color: #0f172a;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+}
+
+.social-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.social-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   ۶. لوگوی چرخشی
    ========================================== */
 .spinner-logo {
     width: 180px;
@@ -176,7 +285,7 @@ header {
 }
 
 /* ==========================================
-   ۶. بخش معرفی اصلی (Hero)
+   ۷. بخش معرفی اصلی (Hero)
    ========================================== */
 .hero {
     padding: 120px 1.5rem 60px;
@@ -250,7 +359,7 @@ header {
 }
 
 /* ==========================================
-   ۷. کارت‌های تخصص (Services)
+   ۸. کارت‌های تخصص (Services)
    ========================================== */
 .services {
     padding: 80px 1.5rem;
@@ -350,7 +459,7 @@ header {
 }
 
 /* ==========================================
-   ۸. بخش تماس با ما (Contact)
+   ۹. بخش تماس با ما (Contact)
    ========================================== */
 .contact {
     padding: 80px 1.5rem;
@@ -467,111 +576,6 @@ header {
 }
 
 /* ==========================================
-   ۹. استایل دکمه شناور شبکه‌های اجتماعی (Floating Social Buttons)
-   ========================================== */
-.social-float-container {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.social-main-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--gold-gradient);
-    color: #ffffff;
-    border: none;
-    box-shadow: 0 6px 20px var(--gold-shadow);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.social-main-btn:hover {
-    transform: scale(1.08);
-}
-
-.social-main-btn .icon-close {
-    display: none;
-}
-
-.social-main-btn.active .icon-open {
-    display: none;
-}
-
-.social-main-btn.active .icon-close {
-    display: block;
-}
-
-.social-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 15px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
-
-.social-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.social-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-}
-
-.social-item:hover {
-    transform: translateX(-5px);
-}
-
-.social-label {
-    background-color: #ffffff;
-    color: #0f172a;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-family: var(--font-body);
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    white-space: nowrap;
-}
-
-.social-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 1.3rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-/* رنگ‌بندی شبکه‌های اجتماعی */
-.eitaa .social-icon { background-color: #e67e22; }
-.rubika .social-icon { background-color: #8e44ad; }
-.whatsapp .social-icon { background-color: #25d366; }
-.telegram .social-icon { background-color: #229ed9; }
-
-/* ==========================================
    ۱۰. فوتر (Footer)
    ========================================== */
 footer {
@@ -614,12 +618,6 @@ footer {
     /* نمایش پیام راهنمای تماس فقط در دستگاه‌های موبایل و تبلت */
     .mobile-only-msg {
         display: block;
-    }
-
-    /* تنظیم جابه‌جایی دکمه شناور در موبایل */
-    .social-float-container {
-        bottom: 20px;
-        left: 20px;
     }
 }
 
