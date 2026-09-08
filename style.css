@@ -467,7 +467,112 @@ header {
 }
 
 /* ==========================================
-   ۹. فوتر (Footer)
+   ۹. استایل دکمه شناور شبکه‌های اجتماعی (Floating Social Buttons)
+   ========================================== */
+.social-float-container {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.social-main-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 6px 20px var(--gold-shadow);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.social-main-btn:hover {
+    transform: scale(1.08);
+}
+
+.social-main-btn .icon-close {
+    display: none;
+}
+
+.social-main-btn.active .icon-open {
+    display: none;
+}
+
+.social-main-btn.active .icon-close {
+    display: block;
+}
+
+.social-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.social-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-item:hover {
+    transform: translateX(-5px);
+}
+
+.social-label {
+    background-color: #ffffff;
+    color: #0f172a;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    white-space: nowrap;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* رنگ‌بندی شبکه‌های اجتماعی */
+.eitaa .social-icon { background-color: #e67e22; }
+.rubika .social-icon { background-color: #8e44ad; }
+.whatsapp .social-icon { background-color: #25d366; }
+.telegram .social-icon { background-color: #229ed9; }
+
+/* ==========================================
+   ۱۰. فوتر (Footer)
    ========================================== */
 footer {
     background-color: #0f172a;
@@ -479,7 +584,7 @@ footer {
 }
 
 /* ==========================================
-   ۱۰. تنظیمات واکنش‌گرا (Responsive)
+   ۱۱. تنظیمات واکنش‌گرا (Responsive)
    ========================================== */
 @media screen and (max-width: 992px) {
     .nav-links, .nav-btn {
@@ -509,6 +614,12 @@ footer {
     /* نمایش پیام راهنمای تماس فقط در دستگاه‌های موبایل و تبلت */
     .mobile-only-msg {
         display: block;
+    }
+
+    /* تنظیم جابه‌جایی دکمه شناور در موبایل */
+    .social-float-container {
+        bottom: 20px;
+        left: 20px;
     }
 }
 
