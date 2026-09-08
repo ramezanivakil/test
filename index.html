@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دفتر وکالت و مشاوره حقوقی | وکیل پایه یک دادگستری</title>
+    <!-- آیکون‌های FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- فایل استایل CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- نوار منوی بالای صفحه -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
@@ -26,11 +29,14 @@
         </div>
     </header>
 
+    <!-- بخش معرفی اصلی (Hero) -->
     <section class="hero" id="hero">
+        <!-- ۱. لوگوی چرخشی -->
         <div class="spinner-logo logo-order">
             <img src="images/logo.png" alt="لوگوی دفتر وکالت">
         </div>
 
+        <!-- ۲. نوشته‌های معرفی -->
         <div class="hero-text text-order">
             <h1>وکیل پایه یک دادگستری</h1>
             <div class="subtitle">مشاور حقوقی دعاوی تخصصی، شرکت‌ها و امور ثبتی</div>
@@ -40,11 +46,13 @@
             <a href="#contact" class="btn-gold">درخواست مشاوره تخصصی</a>
         </div>
 
+        <!-- ۳. تصویر وکیل -->
         <div class="hero-image image-order">
             <img src="images/profile.png" alt="تصویر وکیل پایه یک">
         </div>
     </section>
 
+    <!-- بخش کارت‌های تخصص (۶ کارت تصویری) -->
     <section class="services" id="services">
         <div class="section-title">
             <h2>حوزه‌های تخصصی فعالیت</h2>
@@ -52,6 +60,7 @@
         
         <div class="cards-grid">
             
+            <!-- کارت ۱: مدیر ورشکستگی و انحلال شرکت ها -->
             <div class="card">
                 <div class="card-image">
                     <img src="images/sherkat.jpg" alt="مدیر تصفیه ورشکستگی و انحلال شرکت ها">
@@ -62,6 +71,7 @@
                 </div>
             </div>
 
+            <!-- کارت ۲: حقوقی -->
             <div class="card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="دعاوی حقوقی">
@@ -72,6 +82,7 @@
                 </div>
             </div>
 
+            <!-- کارت ۳: کیفری -->
             <div class="card">
                 <div class="card-image">
                     <img src="images/kifari.jpg" alt="دعاوی کیفری">
@@ -82,6 +93,7 @@
                 </div>
             </div>
 
+            <!-- کارت ۴: خانواده -->
             <div class="card">
                 <div class="card-image">
                     <img src="images/khanevade.jpg" alt="دعاوی خانواده">
@@ -92,6 +104,7 @@
                 </div>
             </div>
 
+            <!-- کارت ۵: شرکت‌ها -->
             <div class="card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="دعاوی شرکت‌ها">
@@ -102,6 +115,7 @@
                 </div>
             </div>
 
+            <!-- کارت ۶: امور ثبتی -->
             <div class="card">
                 <div class="card-image">
                     <img src="images/sabt.jpg" alt="امور ثبتی">
@@ -115,6 +129,7 @@
         </div>
     </section>
 
+    <!-- بخش تماس با ما -->
     <section class="contact" id="contact">
         <div class="section-title">
             <h2>تماس و دریافت مشاوره</h2>
@@ -126,10 +141,15 @@
                     <i class="fa-solid fa-location-dot"></i>
                     <span>شهر: ابهر ، خرمدره ، هیدج ، شریف آباد ، صائین قلعه</span>
                 </div>
-                <div class="info-item">
+                <div class="info-item phone-item">
                     <i class="fa-solid fa-phone"></i>
-                    <span>شماره تماس: </span>
-                    <a href="tel:09127442394" class="phone-link">۰۹۱۲۷۴۴۲۳۹۴</a>
+                    <div class="phone-wrapper">
+                        <div>
+                            <span>شماره تماس: </span>
+                            <a href="tel:09127442394" class="phone-link">۰۹۱۲۷۴۴۲۳۹۴</a>
+                        </div>
+                        <small class="mobile-only-msg">برای تماس مستقیم روی شماره ضربه بزنید</small>
+                    </div>
                 </div>
             </div>
 
@@ -151,10 +171,12 @@
         </div>
     </section>
 
+    <!-- فوتر -->
     <footer>
         <p>© تمامی حقوق این وب‌سایت متعلق به دفتر وکالت می‌باشد.</p>
     </footer>
 
+    <!-- اسکریپت جاوااسکریپت -->
     <script src="script.js"></script>
 </body>
 </html>
