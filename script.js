@@ -1,27 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('consultationForm');
-    const formStatus = document.getElementById('formStatus');
+    const headerCallBtn = document.getElementById('headerCallBtn');
+    const phoneModal = document.getElementById('phoneModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const copyPhoneBtn = document.getElementById('copyPhoneBtn');
+    const copyToast = document.getElementById('copyToast');
+    const phoneNumber = "09127442394";
 
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+    // تشخیص دقیق مرورگر موبایل یا ابعاد صفحه موبایل
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    }
 
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (!name || !phone || !message) {
-                formStatus.style.color = '#e11d48'; // رنگ قرمز استاندارد
-                formStatus.textContent = 'لطفاً تمامی فیلدها را پر کنید.';
-                return;
+    // عملکرد دکمه تماس
+    if (headerCallBtn) {
+        headerCallBtn.addEventListener('click', () => {
+            if (isMobileDevice()) {
+                window.location.href = `tel:${phoneNumber}`;
+            } else {
+                phoneModal.classList.add('active');
             }
+        });
+    }
 
-            // نمایش پیام موفقیت‌آمیز
-            formStatus.style.color = '#16a34a'; // رنگ سبز استاندارد
-            formStatus.textContent = 'درخواست شما با موفقیت ثبت شد. به‌زودی با شما تماس خواهیم گرفت.';
+    // بستن پاپ‌آپ
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', () => {
+            phoneModal.classList.remove('active');
+        });
+    }
 
-            // پاک کردن فرم
-            form.reset();
+    if (phoneModal) {
+        phoneModal.addEventListener('click', (e) => {
+            if (e.target === phoneModal) {
+                phoneModal.classList.remove('active');
+            }
+        });
+    }
+
+    // کپی شماره تلفن
+    if (copyPhoneBtn) {
+        copyPhoneBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                copyToast.classList.add('show');
+                setTimeout(() => {
+                    copyToast.classList.remove('show');
+                }, 2000);
+            });
         });
     }
 });
