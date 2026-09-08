@@ -14,49 +14,41 @@
     <!-- نوار منوی بالای صفحه -->
     <header>
         <div class="nav-container">
+            <!-- سمت راست: لوگو و عنوان -->
             <a href="#" class="logo">
                 <i class="fa-solid fa-scale-balanced"></i>
                 <span>دفتر وکالت و مشاوره حقوقی</span>
             </a>
 
+            <!-- وسط: منوی اصلی -->
             <ul class="nav-links">
                 <li><a href="#hero">خانه</a></li>
                 <li><a href="#services">حوزه‌های تخصصی</a></li>
                 <li><a href="#contact">تماس با ما</a></li>
             </ul>
 
+            <!-- سمت چپ: دکمه مشاوره و نوار آیکون پیام‌رسان‌ها -->
             <div class="header-left-action">
                 <a href="#contact" class="btn-gold nav-btn">مشاوره حضوری</a>
 
-                <!-- منوی پیام‌رسان‌ها در هدر بالای صفحه سمت چپ -->
-                <div class="social-header-container">
-                    <button class="social-header-btn" id="socialMainBtn" aria-label="ارتباط در شبکه‌های اجتماعی">
-                        <i class="fa-solid fa-comments icon-open"></i>
-                        <i class="fa-solid fa-xmark icon-close"></i>
-                    </button>
-
-                    <div class="social-menu-top" id="socialMenu">
-                        <!-- ایتا -->
-                        <a href="https://eitaa.com/YOUR_ID" target="_blank" rel="noopener" class="social-item" title="ایتا">
-                            <span class="social-label">مشاوره در ایتا</span>
-                            <div class="social-icon"><img src="images/eitaa.png" alt="ایتا"></div>
-                        </a>
-                        <!-- روبیکا -->
-                        <a href="https://rubika.ir/YOUR_ID" target="_blank" rel="noopener" class="social-item" title="روبیکا">
-                            <span class="social-label">مشاوره در روبیکا</span>
-                            <div class="social-icon"><img src="images/rubika.png" alt="روبیکا"></div>
-                        </a>
-                        <!-- واتساپ -->
-                        <a href="https://wa.me/989127442394" target="_blank" rel="noopener" class="social-item" title="واتساپ">
-                            <span class="social-label">مشاوره در واتساپ</span>
-                            <div class="social-icon"><img src="images/whatsapp.png" alt="واتساپ"></div>
-                        </a>
-                        <!-- تلگرام -->
-                        <a href="https://t.me/YOUR_ID" target="_blank" rel="noopener" class="social-item" title="تلگرام">
-                            <span class="social-label">مشاوره در تلگرام</span>
-                            <div class="social-icon"><img src="images/telegram.png" alt="تلگرام"></div>
-                        </a>
-                    </div>
+                <!-- نوار مستقیم آیکون‌های پیام‌رسان در سمت چپ هدر -->
+                <div class="header-social-bar">
+                    <!-- ایتا -->
+                    <a href="https://eitaa.com/YOUR_ID" target="_blank" rel="noopener" class="header-social-item" title="ایتا">
+                        <img src="images/eitaa.png" alt="ایتا">
+                    </a>
+                    <!-- روبیکا -->
+                    <a href="https://rubika.ir/YOUR_ID" target="_blank" rel="noopener" class="header-social-item" title="روبیکا">
+                        <img src="images/rubika.png" alt="روبیکا">
+                    </a>
+                    <!-- واتساپ -->
+                    <a href="https://wa.me/989127442394" target="_blank" rel="noopener" class="header-social-item" title="واتساپ">
+                        <img src="images/whatsapp.png" alt="واتساپ">
+                    </a>
+                    <!-- تلگرام -->
+                    <a href="https://t.me/YOUR_ID" target="_blank" rel="noopener" class="header-social-item" title="تلگرام">
+                        <img src="images/telegram.png" alt="تلگرام">
+                    </a>
                 </div>
             </div>
         </div>
@@ -209,27 +201,6 @@
         <p>© تمامی حقوق این وب‌سایت متعلق به دفتر وکالت می‌باشد.</p>
     </footer>
 
-    <!-- اسکریپت جاوااسکریپت -->
-    <script>
-        const socialMainBtn = document.getElementById('socialMainBtn');
-        const socialMenu = document.getElementById('socialMenu');
-
-        socialMainBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            socialMainBtn.classList.toggle('active');
-            socialMenu.classList.toggle('active');
-        });
-
-        // بستن منو با کلیک در هر جای دیگر صفحه
-        document.addEventListener('click', () => {
-            socialMainBtn.classList.remove('active');
-            socialMenu.classList.remove('active');
-        });
-
-        socialMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
