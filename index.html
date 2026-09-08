@@ -27,9 +27,17 @@
                 <li><a href="#contact">تماس با ما</a></li>
             </ul>
 
-            <!-- سمت چپ: فقط نوار آیکون‌های پیام‌رسان‌ها -->
+            <!-- سمت چپ: آیکون‌های پیام‌رسان‌ها و تماس -->
             <div class="header-left-action">
                 <div class="header-social-bar">
+                    <!-- دکمه تماس (هوشمند دسکتاپ/موبایل) -->
+                    <button type="button" class="header-social-item call-btn" id="headerCallBtn" title="تماس تلفنی">
+                        <i class="fa-solid fa-phone"></i>
+                    </button>
+                    <!-- بله -->
+                    <a href="https://ble.ir/YOUR_ID" target="_blank" rel="noopener" class="header-social-item" title="بله">
+                        <img src="images/bale.png" alt="بله">
+                    </a>
                     <!-- ایتا -->
                     <a href="https://eitaa.com/YOUR_ID" target="_blank" rel="noopener" class="header-social-item" title="ایتا">
                         <img src="images/eitaa.png" alt="ایتا">
@@ -53,36 +61,30 @@
 
     <!-- بخش معرفی اصلی (Hero) -->
     <section class="hero" id="hero">
-        <!-- ۱. لوگوی چرخشی -->
         <div class="spinner-logo logo-order">
             <img src="images/logo.png" alt="لوگوی دفتر وکالت">
         </div>
 
-        <!-- ۲. نوشته‌های معرفی -->
         <div class="hero-text text-order">
             <h1>وکیل پایه یک دادگستری</h1>
             <div class="subtitle">مشاور حقوقی دعاوی تخصصی، شرکت‌ها و امور ثبتی</div>
             <p>
                 ارائه خدمات جامع مشاوره حقوقی، تنظیم قراردادهای پیچیده تجاری، و وکالت تخصصی در دعاوی ملکی، کیفری، خانواده و امور ثبتی با بیش از ۱۵ سال سابقه موثر.
             </p>
-            <a href="#contact" class="btn-gold">درخواست مشاوره تخصصی</a>
         </div>
 
-        <!-- ۳. تصویر وکیل -->
         <div class="hero-image image-order">
             <img src="images/profile.png" alt="تصویر وکیل پایه یک">
         </div>
     </section>
 
-    <!-- بخش کارت‌های تخصص (۶ کارت تصویری) -->
+    <!-- بخش کارت‌های تخصص -->
     <section class="services" id="services">
         <div class="section-title">
             <h2>حوزه‌های تخصصی فعالیت</h2>
         </div>
         
         <div class="cards-grid">
-            
-            <!-- کارت ۱: مدیر ورشکستگی و انحلال شرکت ها -->
             <div class="card">
                 <div class="card-image">
                     <img src="images/sherkat.jpg" alt="مدیر تصفیه ورشکستگی و انحلال شرکت ها">
@@ -93,7 +95,6 @@
                 </div>
             </div>
 
-            <!-- کارت ۲: حقوقی -->
             <div class="card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="دعاوی حقوقی">
@@ -104,7 +105,6 @@
                 </div>
             </div>
 
-            <!-- کارت ۳: کیفری -->
             <div class="card">
                 <div class="card-image">
                     <img src="images/kifari.jpg" alt="دعاوی کیفری">
@@ -115,7 +115,6 @@
                 </div>
             </div>
 
-            <!-- کارت ۴: خانواده -->
             <div class="card">
                 <div class="card-image">
                     <img src="images/khanevade.jpg" alt="دعاوی خانواده">
@@ -126,7 +125,6 @@
                 </div>
             </div>
 
-            <!-- کارت ۵: شرکت‌ها -->
             <div class="card">
                 <div class="card-image">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="دعاوی شرکت‌ها">
@@ -137,7 +135,6 @@
                 </div>
             </div>
 
-            <!-- کارت ۶: امور ثبتی -->
             <div class="card">
                 <div class="card-image">
                     <img src="images/sabt.jpg" alt="امور ثبتی">
@@ -147,7 +144,6 @@
                     <p>پیگیری و رفع موانع ثبت املاک و علائم تجاری (برند و لوگو)، افراز و فروش املاک مشاع، اعتراض به ثبت ملک، و هیئت نظارت و شورای عالی ثبت.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -192,6 +188,25 @@
             </div>
         </div>
     </section>
+
+    <!-- پاپ‌آپ (Modal) نمایش شماره تلفن برای دسکتاپ -->
+    <div id="phoneModal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close" id="modalCloseBtn">&times;</button>
+            <div class="modal-icon">
+                <i class="fa-solid fa-phone-volume"></i>
+            </div>
+            <h3>شماره تماس دفتر وکالت</h3>
+            <p>جهت هماهنگی و دریافت مشاوره تماس بگیرید:</p>
+            <div class="modal-phone-box">
+                <span id="modalPhoneNumber">09127442394</span>
+                <button id="copyPhoneBtn" class="copy-btn" title="کپی شماره">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+            <span id="copyToast" class="copy-toast">شماره کپی شد!</span>
+        </div>
+    </div>
 
     <!-- فوتر -->
     <footer>
