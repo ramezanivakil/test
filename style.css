@@ -1,38 +1,35 @@
 /* ==========================================
-   ۱. تعریف متغیرها (فونت‌ها و پالت رنگی روشن)
+   ۱. متغیرها و تنظیمات فونت و رنگ
    ========================================== */
 :root {
-    /* فونت‌ها */
-    --font-heading: 'CustomTitr', sans-serif;
-    --font-accent: 'CustomComps', sans-serif;
-    --font-body: 'CustomZar', sans-serif;
+    --font-heading: 'CustomTitr', Tahoma, sans-serif;
+    --font-accent: 'CustomComps', Tahoma, sans-serif;
+    --font-body: 'CustomZar', Tahoma, sans-serif;
 
-    /* پالت رنگی تم روشن و مدرن */
-    --bg-main: #f8fafc;        /* پس‌زمینه اصلی بسیار ملایم */
-    --bg-card: #ffffff;        /* پس‌زمینه کارت‌ها */
-    --bg-secondary: #f1f5f9;   /* پس‌زمینه بخش‌های ثانویه */
+    /* پالت رنگی روشن، مدرن و رسمی */
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-secondary: #f1f5f9;
     
-    --text-primary: #0f172a;   /* سرمه‌ای خیلی تیره برای عناوین و متن اصلی */
-    --text-muted: #475569;     /* خاکستری متناسب برای توضیحات */
-    --border-color: #e2e8f0;   /* خطوط جداکننده ملایم */
+    --text-primary: #0f172a;
+    --text-muted: #475569;
+    --border-color: #e2e8f0;
 
-    /* رنگ‌های طلایی و هویتی (سلطنتی و خیره‌کننده) */
     --gold-primary: #d97706;
     --gold-hover: #b45309;
     --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
     --gold-shadow: rgba(217, 119, 6, 0.25);
 
-    /* اندازه‌های فونت */
-    --fs-h1: 2.8rem;
-    --fs-h2: 2.0rem;
-    --fs-h3: 1.3rem;
-    --fs-subtitle: 1.25rem;
+    --fs-h1: 2.5rem;
+    --fs-h2: 1.8rem;
+    --fs-h3: 1.25rem;
+    --fs-subtitle: 1.15rem;
     --fs-body: 1.05rem;
     --fs-nav: 0.95rem;
 }
 
 /* ==========================================
-   ۲. فونت‌های سفارشی
+   ۲. تعریف فونت‌ها
    ========================================== */
 @font-face {
     font-family: 'CustomTitr';
@@ -59,7 +56,7 @@
 }
 
 /* ==========================================
-   ۳. تنظیمات عمومی و بدنه
+   ۳. تنظیمات پایه
    ========================================== */
 * {
     box-sizing: border-box;
@@ -77,6 +74,7 @@ body {
     background-color: var(--bg-main) !important;
     color: var(--text-primary);
     line-height: 1.8;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -93,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================
-   ۴. هدر و منوی بالای سایت (شیشه ای و لوکس)
+   ۴. هدر (Header)
    ========================================== */
 header {
     background-color: rgba(255, 255, 255, 0.9) !important;
@@ -107,16 +105,16 @@ header {
 }
 
 .nav-container {
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 1.5rem;
 }
 
 .logo {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 800;
     text-decoration: none;
     display: flex;
@@ -125,7 +123,6 @@ header {
     background: var(--gold-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 4px rgba(217, 119, 6, 0.2));
 }
 
 .nav-links {
@@ -140,7 +137,7 @@ header {
     font-size: var(--fs-nav);
     font-family: var(--font-body);
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
@@ -153,11 +150,11 @@ header {
 }
 
 /* ==========================================
-   ۵. لوگوی چرخشی سکه‌ای
+   ۵. لوگوی چرخشی
    ========================================== */
 .spinner-logo {
-    width: 195px;
-    height: 195px;
+    width: 180px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -168,13 +165,9 @@ header {
 .spinner-logo img {
     width: 100%;
     height: 100%;
-    max-width: 195px;
-    max-height: 195px;
     object-fit: contain;
-    display: block;
     animation: flipCoin 4s linear infinite;
     transform-style: preserve-3d;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.08));
 }
 
 @keyframes flipCoin {
@@ -186,12 +179,12 @@ header {
    ۶. بخش معرفی اصلی (Hero)
    ========================================== */
 .hero {
-    padding: 130px 2rem 60px;
-    max-width: 1400px;
+    padding: 120px 1.5rem 60px;
+    max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 200px 1fr 520px;
-    gap: 4rem; 
+    grid-template-columns: 200px 1fr 450px;
+    gap: 2.5rem; 
     align-items: center;
     background-color: var(--bg-main);
 }
@@ -205,7 +198,7 @@ header {
 
 .hero-text .subtitle {
     font-size: var(--fs-subtitle);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     font-weight: 700;
     background: var(--gold-gradient);
     -webkit-background-clip: text;
@@ -214,16 +207,15 @@ header {
 
 .hero-text p {
     color: var(--text-muted);
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.5rem;
     font-size: var(--fs-body);
 }
 
-/* دکمه طلایی جدید */
 .btn-gold {
     display: inline-block;
     background: var(--gold-gradient);
     color: #ffffff !important;
-    padding: 0.8rem 2rem;
+    padding: 0.75rem 1.8rem;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 700;
@@ -233,8 +225,8 @@ header {
 }
 
 .btn-gold:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(217, 119, 6, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.35);
 }
 
 .hero-image {
@@ -244,29 +236,24 @@ header {
 
 .hero-image img {
     width: 100%;
-    max-width: 520px;
+    max-width: 100%;
     height: auto;
     display: block;
     border-radius: 16px;
-    box-shadow: 
-        0 20px 40px rgba(15, 23, 42, 0.08),
-        0 10px 20px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
     border: 4px solid #ffffff;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .hero-image img:hover {
-    transform: translateY(-6px);
-    box-shadow: 
-        0 30px 50px rgba(15, 23, 42, 0.12),
-        0 0 25px var(--gold-shadow);
+    transform: translateY(-5px);
 }
 
 /* ==========================================
-   ۷. بخش کارت‌های تخصص (Services)
+   ۷. کارت‌های تخصص (Services)
    ========================================== */
 .services {
-    padding: 90px 2rem;
+    padding: 80px 1.5rem;
     background-color: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
@@ -274,7 +261,7 @@ header {
 
 .section-title {
     text-align: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
 }
 
 .section-title h2 {
@@ -283,7 +270,7 @@ header {
     color: var(--text-primary);
     position: relative;
     display: inline-block;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
 }
 
 .section-title h2::after {
@@ -292,18 +279,18 @@ header {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
+    width: 70px;
     height: 4px;
     border-radius: 2px;
     background: var(--gold-gradient);
 }
 
 .cards-grid {
-    max-width: 1300px;
+    max-width: 1250px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .card {
@@ -318,32 +305,30 @@ header {
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     border-color: rgba(217, 119, 6, 0.4);
-    box-shadow: 0 20px 35px rgba(15, 23, 42, 0.08), 0 0 15px var(--gold-shadow);
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
 }
 
 .card-image {
     width: 100%;
-    height: 210px;
+    height: 200px;
     overflow: hidden;
-    position: relative;
 }
 
 .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
     transition: transform 0.5s ease;
 }
 
 .card:hover .card-image img {
-    transform: scale(1.06);
+    transform: scale(1.05);
 }
 
 .card-content {
-    padding: 1.8rem 1.5rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -361,28 +346,27 @@ header {
     color: var(--text-muted) !important;
     font-family: var(--font-body);
     font-size: var(--fs-body);
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
 /* ==========================================
    ۸. بخش تماس با ما (Contact)
    ========================================== */
 .contact {
-    padding: 90px 2rem;
+    padding: 80px 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: var(--bg-main);
 }
 
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     background-color: var(--bg-card);
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: 16px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .contact-info h3 {
@@ -397,25 +381,24 @@ header {
     gap: 1rem;
     margin-bottom: 1.2rem;
     color: var(--text-muted);
-    font-size: var(--fs-body);
 }
 
 .info-item i {
     color: var(--gold-primary);
     font-size: 1.2rem;
-    width: 25px;
+    width: 20px;
 }
 
 .contact-form form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1rem;
 }
 
 .form-group input, 
 .form-group textarea {
     width: 100%;
-    padding: 0.9rem;
+    padding: 0.8rem 1rem;
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -430,7 +413,7 @@ header {
     outline: none;
     background-color: #ffffff;
     border-color: var(--gold-primary);
-    box-shadow: 0 0 0 4px var(--gold-shadow);
+    box-shadow: 0 0 0 3px var(--gold-shadow);
 }
 
 .form-btn {
@@ -447,12 +430,12 @@ header {
 }
 
 /* ==========================================
-   ۹. فوتر سایت (Footer)
+   ۹. فوتر (Footer)
    ========================================== */
 footer {
-    background-color: #0f172a; /* سرمه‌ای تیره رسمی برای تعادل بصری در انتهای صفحه */
+    background-color: #0f172a;
     text-align: center;
-    padding: 2.5rem 2rem;
+    padding: 2rem 1.5rem;
     color: #f8fafc;
     font-family: var(--font-body);
     font-size: var(--fs-nav);
@@ -470,21 +453,16 @@ footer {
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding-top: 110px;
+        padding-top: 100px;
         gap: 2rem;
     }
 
     .hero .image-order { order: 1; }
     .hero .text-order { order: 2; }
-    .hero .logo-order { order: 3; margin-top: 0.5rem; }
-
-    .hero-text h1 {
-        font-size: calc(var(--fs-h1) * 0.8);
-    }
+    .hero .logo-order { order: 3; }
 
     .cards-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1.8rem !important;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .contact-container {
@@ -493,20 +471,11 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-    .hero { padding-top: 100px; }
-
     .cards-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
+        grid-template-columns: 1fr;
     }
 
-    .card { width: 100% !important; }
-    .card-image { height: 180px !important; }
-    .card-content { padding: 1.2rem 1rem !important; }
-    .card-content h3 { font-size: 1.15rem !important; }
-    .card-content p {
-        font-size: 0.95rem !important;
-        word-break: normal;
-        overflow-wrap: break-word;
+    .contact-container {
+        padding: 1.5rem;
     }
 }
