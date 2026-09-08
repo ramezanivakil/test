@@ -6,7 +6,6 @@
     --font-accent: 'CustomComps', Tahoma, sans-serif;
     --font-body: 'CustomZar', Tahoma, sans-serif;
 
-    /* پالت رنگی روشن، مدرن و رسمی */
     --bg-main: #f8fafc;
     --bg-card: #ffffff;
     --bg-secondary: #f1f5f9;
@@ -150,7 +149,7 @@ header {
 }
 
 /* ==========================================
-   ۵. نوار مستقیم آیکون‌های پیام‌رسان در هدر سمت چپ
+   ۵. نوار آیکون‌های پیام‌رسان و دکمه تماس
    ========================================== */
 .header-social-bar {
     display: flex;
@@ -172,6 +171,8 @@ header {
     transition: all 0.3s ease;
     overflow: hidden;
     flex-shrink: 0;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .header-social-item img {
@@ -180,14 +181,157 @@ header {
     object-fit: cover;
 }
 
+/* دکمه اختصاصی تماس تلفنی */
+.header-social-item.call-btn {
+    background: var(--gold-gradient);
+    color: #ffffff;
+    border: none;
+    font-size: 1.05rem;
+}
+
 .header-social-item:hover {
     transform: translateY(-3px) scale(1.08);
     box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
     border-color: var(--gold-primary);
 }
 
+.header-social-item.call-btn:hover {
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.45);
+}
+
 /* ==========================================
-   ۶. لوگوی چرخشی
+   ۶. پاپ‌آپ (Modal) نمایش شماره تلفن
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    background-color: var(--bg-card);
+    width: 90%;
+    max-width: 380px;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: scale(0.85);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-card {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gold-gradient);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto 1rem;
+    box-shadow: 0 6px 18px var(--gold-shadow);
+}
+
+.modal-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+}
+
+.modal-phone-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    direction: ltr;
+}
+
+.modal-phone-box span {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+    letter-spacing: 1px;
+}
+
+.copy-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.4rem 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    background-color: var(--gold-primary);
+    color: #ffffff;
+    border-color: var(--gold-primary);
+}
+
+.copy-toast {
+    display: block;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: #16a34a;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.copy-toast.show {
+    opacity: 1;
+}
+
+/* ==========================================
+   ۷. سایر بخش‌ها (Hero, Services, Contact, Footer)
    ========================================== */
 .spinner-logo {
     width: 180px;
@@ -212,9 +356,6 @@ header {
     100% { transform: rotateY(360deg); }
 }
 
-/* ==========================================
-   ۷. بخش معرفی اصلی (Hero)
-   ========================================== */
 .hero {
     padding: 120px 1.5rem 60px;
     max-width: 1300px;
@@ -244,26 +385,7 @@ header {
 
 .hero-text p {
     color: var(--text-muted);
-    margin-bottom: 1.5rem;
     font-size: var(--fs-body);
-}
-
-.btn-gold {
-    display: inline-block;
-    background: var(--gold-gradient);
-    color: #ffffff !important;
-    padding: 0.75rem 1.8rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: var(--fs-body);
-    box-shadow: 0 6px 20px var(--gold-shadow);
-    transition: all 0.3s ease;
-}
-
-.btn-gold:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.35);
 }
 
 .hero-image {
@@ -286,9 +408,6 @@ header {
     transform: translateY(-5px);
 }
 
-/* ==========================================
-   ۸. کارت‌های تخصص (Services)
-   ========================================== */
 .services {
     padding: 80px 1.5rem;
     background-color: var(--bg-secondary);
@@ -386,9 +505,6 @@ header {
     line-height: 1.7;
 }
 
-/* ==========================================
-   ۹. بخش تماس با ما (Contact)
-   ========================================== */
 .contact {
     padding: 80px 1.5rem;
     max-width: 1200px;
@@ -439,7 +555,6 @@ header {
     flex-direction: column;
 }
 
-/* استایل لینک شماره تلفن لمسی/کلیکی */
 .phone-link {
     color: var(--gold-primary);
     text-decoration: none;
@@ -454,13 +569,30 @@ header {
     text-decoration: underline;
 }
 
-/* پنهان کردن پیام راهنمای تماس در حالت دسکتاپ (پیش‌فرض) */
 .mobile-only-msg {
     display: none;
     font-size: 0.85rem;
     color: var(--gold-primary);
     margin-top: 2px;
     font-weight: normal;
+}
+
+.btn-gold {
+    display: inline-block;
+    background: var(--gold-gradient);
+    color: #ffffff !important;
+    padding: 0.75rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--fs-body);
+    box-shadow: 0 6px 20px var(--gold-shadow);
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.35);
 }
 
 .contact-form form {
@@ -503,9 +635,6 @@ header {
     font-weight: 600;
 }
 
-/* ==========================================
-   ۱۰. فوتر (Footer)
-   ========================================== */
 footer {
     background-color: #0f172a;
     text-align: center;
@@ -516,7 +645,7 @@ footer {
 }
 
 /* ==========================================
-   ۱۱. تنظیمات واکنش‌گرا (Responsive)
+   ۸. تنظیمات واکنش‌گرا (Responsive)
    ========================================== */
 @media screen and (max-width: 992px) {
     .nav-links {
