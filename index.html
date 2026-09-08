@@ -1,568 +1,203 @@
-/* ==========================================
-   ۱. متغیرها و تنظیمات فونت و رنگ
-   ========================================== */
-:root {
-    --font-heading: 'CustomTitr', Tahoma, sans-serif;
-    --font-accent: 'CustomComps', Tahoma, sans-serif;
-    --font-body: 'CustomZar', Tahoma, sans-serif;
-
-    /* پالت رنگی روشن، مدرن و رسمی */
-    --bg-main: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-secondary: #f1f5f9;
-    
-    --text-primary: #0f172a;
-    --text-muted: #475569;
-    --border-color: #e2e8f0;
-
-    --gold-primary: #d97706;
-    --gold-hover: #b45309;
-    --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
-    --gold-shadow: rgba(217, 119, 6, 0.25);
-
-    --fs-h1: 2.5rem;
-    --fs-h2: 1.8rem;
-    --fs-h3: 1.25rem;
-    --fs-subtitle: 1.15rem;
-    --fs-body: 1.05rem;
-    --fs-nav: 0.95rem;
-}
-
-/* ==========================================
-   ۲. تعریف فونت‌ها
-   ========================================== */
-@font-face {
-    font-family: 'CustomTitr';
-    src: url('fonts/titr.woff2') format('woff2'), url('fonts/titr.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'CustomComps';
-    src: url('fonts/comps.woff2') format('woff2'), url('fonts/comps.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'CustomZar';
-    src: url('fonts/zar.woff2') format('woff2'), url('fonts/zar.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* ==========================================
-   ۳. تنظیمات پایه
-   ========================================== */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    background-color: var(--bg-main) !important;
-    color: var(--text-primary);
-    line-height: 1.8;
-    overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    color: var(--text-primary);
-}
-
-.subtitle,
-.logo,
-.contact-info h3,
-.info-item i,
-.btn-gold {
-    font-family: var(--font-accent);
-}
-
-/* ==========================================
-   ۴. هدر (Header)
-   ========================================== */
-header {
-    background-color: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-
-.nav-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 1.5rem;
-}
-
-.logo {
-    font-size: 1.25rem;
-    font-weight: 800;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: var(--fs-nav);
-    font-family: var(--font-body);
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--gold-primary);
-}
-
-.header-left-action {
-    display: flex;
-    align-items: center;
-}
-
-/* ==========================================
-   ۵. نوار مستقیم آیکون‌های پیام‌رسان در هدر سمت چپ
-   ========================================== */
-.header-social-bar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    direction: ltr;
-}
-
-.header-social-item {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.header-social-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.header-social-item:hover {
-    transform: translateY(-3px) scale(1.08);
-    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
-    border-color: var(--gold-primary);
-}
-
-/* ==========================================
-   ۶. لوگوی چرخشی
-   ========================================== */
-.spinner-logo {
-    width: 180px;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1000px;
-    margin: 0 auto;
-}
-
-.spinner-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    animation: flipCoin 4s linear infinite;
-    transform-style: preserve-3d;
-}
-
-@keyframes flipCoin {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
-}
-
-/* ==========================================
-   ۷. بخش معرفی اصلی (Hero)
-   ========================================== */
-.hero {
-    padding: 120px 1.5rem 60px;
-    max-width: 1300px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 200px 1fr 450px;
-    gap: 2.5rem; 
-    align-items: center;
-    background-color: var(--bg-main);
-}
-
-.hero-text h1 {
-    font-size: var(--fs-h1);
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-}
-
-.hero-text .subtitle {
-    font-size: var(--fs-subtitle);
-    margin-bottom: 1rem;
-    font-weight: 700;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-text p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    font-size: var(--fs-body);
-}
-
-.btn-gold {
-    display: inline-block;
-    background: var(--gold-gradient);
-    color: #ffffff !important;
-    padding: 0.75rem 1.8rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: var(--fs-body);
-    box-shadow: 0 6px 20px var(--gold-shadow);
-    transition: all 0.3s ease;
-}
-
-.btn-gold:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.35);
-}
-
-.hero-image {
-    text-align: center;
-    width: 100%;
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
-    border: 4px solid #ffffff;
-    transition: transform 0.3s ease;
-}
-
-.hero-image img:hover {
-    transform: translateY(-5px);
-}
-
-/* ==========================================
-   ۸. کارت‌های تخصص (Services)
-   ========================================== */
-.services {
-    padding: 80px 1.5rem;
-    background-color: var(--bg-secondary);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-title h2 {
-    font-size: var(--fs-h2);
-    font-family: var(--font-heading);
-    color: var(--text-primary);
-    position: relative;
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 4px;
-    border-radius: 2px;
-    background: var(--gold-gradient);
-}
-
-.cards-grid {
-    max-width: 1250px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(217, 119, 6, 0.4);
-    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
-}
-
-.card-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.card:hover .card-image img {
-    transform: scale(1.05);
-}
-
-.card-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    text-align: right;
-}
-
-.card-content h3 {
-    font-size: var(--fs-h3);
-    font-family: var(--font-heading);
-    margin-bottom: 0.8rem;
-    color: var(--text-primary);
-}
-
-.card-content p {
-    color: var(--text-muted) !important;
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    line-height: 1.7;
-}
-
-/* ==========================================
-   ۹. بخش تماس با ما (Contact)
-   ========================================== */
-.contact {
-    padding: 80px 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    background-color: var(--bg-card);
-    padding: 2.5rem;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-}
-
-.contact-info h3 {
-    font-size: var(--fs-h3);
-    margin-bottom: 1.8rem;
-    color: var(--text-primary);
-}
-
-.info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
-    font-weight: 600;
-    line-height: 1.8;
-}
-
-.info-item i {
-    color: var(--gold-primary);
-    font-size: 1.3rem;
-    width: 24px;
-    margin-top: 4px;
-    flex-shrink: 0;
-}
-
-.phone-item {
-    align-items: flex-start;
-}
-
-.phone-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-/* استایل لینک شماره تلفن لمسی/کلیکی */
-.phone-link {
-    color: var(--gold-primary);
-    text-decoration: none;
-    font-weight: 700;
-    transition: color 0.3s ease;
-    display: inline-block;
-    direction: ltr;
-}
-
-.phone-link:hover {
-    color: var(--gold-hover);
-    text-decoration: underline;
-}
-
-/* پنهان کردن پیام راهنمای تماس در حالت دسکتاپ (پیش‌فرض) */
-.mobile-only-msg {
-    display: none;
-    font-size: 0.85rem;
-    color: var(--gold-primary);
-    margin-top: 2px;
-    font-weight: normal;
-}
-
-.contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    outline: none;
-    background-color: #ffffff;
-    border-color: var(--gold-primary);
-    box-shadow: 0 0 0 3px var(--gold-shadow);
-}
-
-.form-btn {
-    width: 100%;
-    border: none;
-    cursor: pointer;
-}
-
-.form-status {
-    margin-top: 1rem;
-    font-size: var(--fs-body);
-    text-align: center;
-    font-weight: 600;
-}
-
-/* ==========================================
-   ۱۰. فوتر (Footer)
-   ========================================== */
-footer {
-    background-color: #0f172a;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    color: #f8fafc;
-    font-family: var(--font-body);
-    font-size: var(--fs-nav);
-}
-
-/* ==========================================
-   ۱۱. تنظیمات واکنش‌گرا (Responsive)
-   ========================================== */
-@media screen and (max-width: 992px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        padding-top: 100px;
-        gap: 2rem;
-    }
-
-    .hero .image-order { order: 1; }
-    .hero .text-order { order: 2; }
-    .hero .logo-order { order: 3; }
-
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .mobile-only-msg {
-        display: block;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-container {
-        padding: 1.5rem;
-    }
-
-    .header-social-item {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .header-social-bar {
-        gap: 6px;
-    }
-}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دفتر وکالت و مشاوره حقوقی | وکیل پایه یک دادگستری</title>
+    <!-- آیکون‌های FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- فایل استایل CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- نوار منوی بالای صفحه -->
+    <header>
+        <div class="nav-container">
+            <!-- سمت راست: لوگو و عنوان -->
+            <a href="#" class="logo">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <span>دفتر وکالت و مشاوره حقوقی</span>
+            </a>
+
+            <!-- وسط: منوی اصلی -->
+            <ul class="nav-links">
+                <li><a href="#hero">خانه</a></li>
+                <li><a href="#services">حوزه‌های تخصصی</a></li>
+                <li><a href="#contact">تماس با ما</a></li>
+            </ul>
+
+            <!-- سمت چپ: فقط نوار آیکون‌های پیام‌رسان‌ها -->
+            <div class="header-left-action">
+                <div class="header-social-bar">
+                    <!-- ایتا -->
+                    <a href="https://eitaa.com/YOUR_ID" target="_blank" rel="noopener" class="header-social-item" title="ایتا">
+                        <img src="images/eitaa.png" alt="ایتا">
+                    </a>
+                    <!-- روبیکا -->
+                    <a href="https://rubika.ir/YOUR_ID" target="_blank" rel="noopener" class="header-social-item" title="روبیکا">
+                        <img src="images/rubika.png" alt="روبیکا">
+                    </a>
+                    <!-- واتساپ -->
+                    <a href="https://wa.me/989127442394" target="_blank" rel="noopener" class="header-social-item" title="واتساپ">
+                        <img src="images/whatsapp.png" alt="واتساپ">
+                    </a>
+                    <!-- تلگرام -->
+                    <a href="https://t.me/YOUR_ID" target="_blank" rel="noopener" class="header-social-item" title="تلگرام">
+                        <img src="images/telegram.png" alt="تلگرام">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- بخش معرفی اصلی (Hero) -->
+    <section class="hero" id="hero">
+        <!-- ۱. لوگوی چرخشی -->
+        <div class="spinner-logo logo-order">
+            <img src="images/logo.png" alt="لوگوی دفتر وکالت">
+        </div>
+
+        <!-- ۲. نوشته‌های معرفی -->
+        <div class="hero-text text-order">
+            <h1>وکیل پایه یک دادگستری</h1>
+            <div class="subtitle">مشاور حقوقی دعاوی تخصصی، شرکت‌ها و امور ثبتی</div>
+            <p>
+                ارائه خدمات جامع مشاوره حقوقی، تنظیم قراردادهای پیچیده تجاری، و وکالت تخصصی در دعاوی ملکی، کیفری، خانواده و امور ثبتی با بیش از ۱۵ سال سابقه موثر.
+            </p>
+            <a href="#contact" class="btn-gold">درخواست مشاوره تخصصی</a>
+        </div>
+
+        <!-- ۳. تصویر وکیل -->
+        <div class="hero-image image-order">
+            <img src="images/profile.png" alt="تصویر وکیل پایه یک">
+        </div>
+    </section>
+
+    <!-- بخش کارت‌های تخصص (۶ کارت تصویری) -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>حوزه‌های تخصصی فعالیت</h2>
+        </div>
+        
+        <div class="cards-grid">
+            
+            <!-- کارت ۱: مدیر ورشکستگی و انحلال شرکت ها -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/sherkat.jpg" alt="مدیر تصفیه ورشکستگی و انحلال شرکت ها">
+                </div>
+                <div class="card-content">
+                    <h3>مدیر تصفیه ورشکستگی و انحلال شرکت‌ها</h3>
+                    <p>مدیریت تخصصی فرایند توقف، اعلام ورشکستگی و انحلال قانونی شرکت‌ها، تصفیه مطالبات و دیون، وصول مطالبات و نمایندگی قانونی شرکت در مراجع قضایی و اداره تصفیه امور ورشکستگی.</p>
+                </div>
+            </div>
+
+            <!-- کارت ۲: حقوقی -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="دعاوی حقوقی">
+                </div>
+                <div class="card-content">
+                    <h3>دعاوی حقوقی</h3>
+                    <p>تنظیم انواع قراردادهای ملکی و تجاری، پیگیری ملزومات تعهدات قراردادی، دعاوی سرقفلی، الزام به تنظیم سند رسمی، مطالبه وجه چک و سفته و جبران خسارات مدنی.</p>
+                </div>
+            </div>
+
+            <!-- کارت ۳: کیفری -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/kifari.jpg" alt="دعاوی کیفری">
+                </div>
+                <div class="card-content">
+                    <h3>دعاوی کیفری</h3>
+                    <p>دفاع در پرونده‌های کلاهبرداری، خیانت در امانت، سرقت، جعل و استفاده از سند مجعول، چک کیفری، و جرایم رایانه‌ای و سایبری.</p>
+                </div>
+            </div>
+
+            <!-- کارت ۴: خانواده -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/khanevade.jpg" alt="دعاوی خانواده">
+                </div>
+                <div class="card-content">
+                    <h3>دعاوی خانواده</h3>
+                    <p>مشاوره و وکالت تخصصی در پرونده‌های مطالبه مهریه، نفقه زوجه و فرزند، طلاق توافقی و یک‌طرفه، حضانت فرزندان، استرداد جهیزیه و اجرت‌المثل.</p>
+                </div>
+            </div>
+
+            <!-- کارت ۵: شرکت‌ها -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="دعاوی شرکت‌ها">
+                </div>
+                <div class="card-content">
+                    <h3>دعاوی شرکت‌ها</h3>
+                    <p>مشاوره حقوقی مستمر به صاحبان کسب‌وکار، تنظیم قراردادهای پرسنلی و تجاری، صورتجلسات هیئت‌مدیره و حل‌وفصل اختلافات بین شرکا.</p>
+                </div>
+            </div>
+
+            <!-- کارت ۶: امور ثبتی -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/sabt.jpg" alt="امور ثبتی">
+                </div>
+                <div class="card-content">
+                    <h3>امور ثبتی</h3>
+                    <p>پیگیری و رفع موانع ثبت املاک و علائم تجاری (برند و لوگو)، افراز و فروش املاک مشاع، اعتراض به ثبت ملک، و هیئت نظارت و شورای عالی ثبت.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- بخش تماس با ما -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>تماس و دریافت مشاوره</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>اطلاعات دفتر وکالت</h3>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>شهر: ابهر ، خرمدره ، هیدج ، شریف آباد ، صائین قلعه</span>
+                </div>
+                <div class="info-item phone-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div class="phone-wrapper">
+                        <div>
+                            <span>شماره تماس: </span>
+                            <a href="tel:09127442394" class="phone-link">۰۹۱۲۷۴۴۲۳۹۴</a>
+                        </div>
+                        <small class="mobile-only-msg">برای تماس مستقیم روی شماره ضربه بزنید</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="consultationForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="نام و نام خانوادگی" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="شماره تماس" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder="شرح کوتاه موضوع حقوقی شما..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold form-btn">ارسال درخواست مشاوره</button>
+                </form>
+                <div id="formStatus" class="form-status"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer>
+        <p>© تمامی حقوق این وب‌سایت متعلق به دفتر وکالت می‌باشد.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
