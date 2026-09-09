@@ -1,51 +1,669 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const headerCallBtn = document.getElementById('headerCallBtn');
-    const phoneModal = document.getElementById('phoneModal');
-    const modalCloseBtn = document.getElementById('modalCloseBtn');
-    const copyPhoneBtn = document.getElementById('copyPhoneBtn');
-    const copyToast = document.getElementById('copyToast');
-    const phoneNumber = "09127442394";
+/* ==========================================
+   ۱. متغیرها و تنظیمات فونت و رنگ
+   ========================================== */
+:root {
+    --font-heading: 'CustomTitr', Tahoma, sans-serif;
+    --font-accent: 'CustomComps', Tahoma, sans-serif;
+    --font-body: 'CustomZar', Tahoma, sans-serif;
 
-    // تشخیص دقیق مرورگر موبایل یا ابعاد صفحه موبایل
-    function isMobileDevice() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-secondary: #f1f5f9;
+    
+    --text-primary: #0f172a;
+    --text-muted: #475569;
+    --border-color: #e2e8f0;
+
+    --gold-primary: #d97706;
+    --gold-hover: #b45309;
+    --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+    --gold-shadow: rgba(217, 119, 6, 0.25);
+
+    --fs-h1: 2.5rem;
+    --fs-h2: 1.8rem;
+    --fs-h3: 1.25rem;
+    --fs-subtitle: 1.15rem;
+    --fs-body: 1.05rem;
+    --fs-nav: 0.95rem;
+}
+
+/* ==========================================
+   ۲. تعریف فونت‌ها
+   ========================================== */
+@font-face {
+    font-family: 'CustomTitr';
+    src: url('fonts/titr.woff2') format('woff2'), url('fonts/titr.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CustomComps';
+    src: url('fonts/comps.woff2') format('woff2'), url('fonts/comps.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CustomZar';
+    src: url('fonts/zar.woff2') format('woff2'), url('fonts/zar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================
+   ۳. تنظیمات پایه
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    background-color: var(--bg-main) !important;
+    color: var(--text-primary);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+}
+
+.subtitle,
+.logo,
+.contact-info h3,
+.info-item i,
+.btn-gold {
+    font-family: var(--font-accent);
+}
+
+/* ==========================================
+   ۴. هدر (Header)
+   ========================================== */
+header {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-left-action {
+    display: flex;
+    align-items: center;
+}
+
+/* ==========================================
+   ۵. نوار آیکون‌های پیام‌رسان و دکمه تماس
+   ========================================== */
+.header-social-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    direction: ltr;
+}
+
+.header-social-item {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+}
+
+.header-social-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.header-social-item.call-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+}
+
+.header-social-item:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+    border-color: var(--gold-primary);
+}
+
+/* ==========================================
+   ۶. پاپ‌آپ (Modal) نمایش شماره تلفن
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    background-color: var(--bg-card);
+    width: 90%;
+    max-width: 380px;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: scale(0.85);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-card {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gold-gradient);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto 1rem;
+    box-shadow: 0 6px 18px var(--gold-shadow);
+}
+
+.modal-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+}
+
+.modal-phone-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    direction: ltr;
+}
+
+.modal-phone-box span {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+    letter-spacing: 1px;
+}
+
+.copy-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.4rem 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    background-color: var(--gold-primary);
+    color: #ffffff;
+    border-color: var(--gold-primary);
+}
+
+.copy-toast {
+    display: block;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: #16a34a;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.copy-toast.show {
+    opacity: 1;
+}
+
+/* ==========================================
+   ۷. سایر بخش‌ها (Hero, Services, Contact)
+   ========================================== */
+.spinner-logo {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.spinner-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: flipCoin 4s linear infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes flipCoin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.hero {
+    padding: 120px 1.5rem 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr 450px;
+    gap: 2.5rem; 
+    align-items: center;
+    background-color: var(--bg-main);
+}
+
+.hero-text h1 {
+    font-size: var(--fs-h1);
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+}
+
+.hero-text .subtitle {
+    font-size: var(--fs-subtitle);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.9;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text .subtitle div {
+    margin-bottom: 0.4rem;
+}
+
+.hero-image {
+    text-align: center;
+    width: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+    border: 4px solid #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: translateY(-5px);
+}
+
+.services {
+    padding: 80px 1.5rem;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: var(--fs-h2);
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--gold-gradient);
+}
+
+.cards-grid {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(217, 119, 6, 0.4);
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.card-content h3 {
+    font-size: var(--fs-h3);
+    font-family: var(--font-heading);
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+}
+
+.card-content p {
+    color: var(--text-muted) !important;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: 1.7;
+}
+
+.contact {
+    padding: 80px 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.contact-info h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 1.8rem;
+    color: var(--text-primary);
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+.info-item i {
+    color: var(--gold-primary);
+    font-size: 1.3rem;
+    width: 24px;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.phone-item {
+    align-items: flex-start;
+}
+
+.phone-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-link {
+    color: var(--gold-primary);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    display: inline-block;
+    direction: ltr;
+}
+
+.phone-link:hover {
+    color: var(--gold-hover);
+    text-decoration: underline;
+}
+
+.mobile-only-msg {
+    display: none;
+    font-size: 0.85rem;
+    color: var(--gold-primary);
+    margin-top: 2px;
+    font-weight: normal;
+}
+
+.btn-gold {
+    display: inline-block;
+    background: var(--gold-gradient);
+    color: #ffffff !important;
+    padding: 0.75rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--fs-body);
+    box-shadow: 0 6px 20px var(--gold-shadow);
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.35);
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 0 3px var(--gold-shadow);
+}
+
+.form-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.form-status {
+    margin-top: 1rem;
+    font-size: var(--fs-body);
+    text-align: center;
+    font-weight: 600;
+}
+
+footer {
+    background-color: #0f172a;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    color: #f8fafc;
+    font-family: var(--font-body);
+    font-size: var(--fs-nav);
+}
+
+/* ==========================================
+   ۸. تنظیمات واکنش‌گرا (Responsive)
+   ========================================== */
+@media screen and (max-width: 992px) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+        gap: 2rem;
     }
 
-    // عملکرد دکمه تماس
-    if (headerCallBtn) {
-        headerCallBtn.addEventListener('click', () => {
-            if (isMobileDevice()) {
-                window.location.href = `tel:${phoneNumber}`;
-            } else {
-                phoneModal.classList.add('active');
-            }
-        });
+    .hero .image-order { order: 1; }
+    .hero .text-order { order: 2; }
+    .hero .logo-order { order: 3; }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    // بستن پاپ‌آپ
-    if (modalCloseBtn) {
-        modalCloseBtn.addEventListener('click', () => {
-            phoneModal.classList.remove('active');
-        });
+    .contact-container {
+        grid-template-columns: 1fr;
     }
 
-    if (phoneModal) {
-        phoneModal.addEventListener('click', (e) => {
-            if (e.target === phoneModal) {
-                phoneModal.classList.remove('active');
-            }
-        });
+    .mobile-only-msg {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
     }
 
-    // کپی شماره تلفن
-    if (copyPhoneBtn) {
-        copyPhoneBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(phoneNumber).then(() => {
-                copyToast.classList.add('show');
-                setTimeout(() => {
-                    copyToast.classList.remove('show');
-                }, 2000);
-            });
-        });
+    .contact-container {
+        padding: 1.5rem;
     }
-});
+
+    .header-social-item {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .header-social-bar {
+        gap: 6px;
+    }
+}
