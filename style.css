@@ -124,25 +124,6 @@ header {
     -webkit-text-fill-color: transparent;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: var(--fs-nav);
-    font-family: var(--font-body);
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--gold-primary);
-}
-
 .header-left-action {
     display: flex;
     align-items: center;
@@ -643,10 +624,6 @@ footer {
    ۸. تنظیمات واکنش‌گرا (Responsive)
    ========================================== */
 @media screen and (max-width: 992px) {
-    .nav-links {
-        display: none;
-    }
-
     .hero {
         display: flex;
         flex-direction: column;
