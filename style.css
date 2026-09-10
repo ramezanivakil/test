@@ -341,9 +341,9 @@ header {
 .hero-wrapper {
     background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #0b132b 100%);
     width: 100%;
-    padding-top: 85px;
+    padding-top: 75px;
     box-shadow: inset 0 -10px 25px rgba(0, 0, 0, 0.3);
-    min-height: 50vh; /* افزایش ارتفاع بخش هیرو */
+    min-height: 40vh; /* افزایش ارتفاع بخش هیرو */
     display: flex;
     align-items: center;
 }
