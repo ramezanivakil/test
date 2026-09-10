@@ -113,7 +113,6 @@ header {
     padding: 0.8rem 1.5rem;
 }
 
-/* نوشته لوگوی هدر مشکی شده است */
 .logo {
     font-size: 1.25rem;
     font-weight: 800;
@@ -132,7 +131,7 @@ header {
 }
 
 /* ==========================================
-   ۵. نوار آیکون‌های پیام‌رسان و دکمه تماس (با آیکون‌ها و رنگ مشکی)
+   ۵. نوار آیکون‌های پیام‌رسان و دکمه تماس
    ========================================== */
 .header-social-bar {
     display: flex;
@@ -606,6 +605,27 @@ header {
     color: var(--gold-hover);
     margin-top: 2px;
     font-weight: normal;
+}
+
+/* استایل آیکون‌های ارتباطی در بخش تماس */
+.contact-social-section {
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.contact-social-section > span {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+}
+
+.contact-social-bar {
+    justify-content: flex-start;
+    direction: rtl;
+    gap: 12px;
 }
 
 .btn-gold {
