@@ -540,7 +540,7 @@ header {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    text-align: right;
+    text-align: center; /* تغییر به وسط‌چین برای عناوین درون کارت‌ها */
 }
 
 .card-content h3 {
@@ -548,6 +548,7 @@ header {
     font-family: var(--font-heading);
     margin-bottom: 0;
     color: var(--text-primary);
+    text-align: center; /* وسط‌چین کردن عناوین کارت‌ها */
 }
 
 /* ==========================================
