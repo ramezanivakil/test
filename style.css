@@ -369,7 +369,7 @@ header {
 .hero-text {
     color: #ffffff;
     z-index: 2;
-    transform: translateX(-35px); /* جابه‌جایی ستون متن به سمت چپ (می‌توانید مقدار را کم یا زیاد کنید) */
+    transform: translateX(-55px); /* جابه‌جایی ستون متن به سمت چپ (می‌توانید مقدار را کم یا زیاد کنید) */
 }
 
 .hero-text .lawyer-name {
