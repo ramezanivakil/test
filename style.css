@@ -564,7 +564,7 @@ header {
     border: none !important;
     box-shadow: none !important;
     color: var(--gold-hover) !important;
-    font-size: 2.8rem !important; /* اندازه دو برابر شده */
+    font-size: 2.8rem !important;
     line-height: 0.8 !important;
     margin-top: 2px !important;
     flex-shrink: 0 !important;
@@ -583,18 +583,22 @@ header {
     flex-wrap: wrap;
 }
 
+/* فونت و اندازه شماره تماس دو برابر شده است (2rem) */
 .phone-link {
     color: var(--gold-hover);
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 800;
+    font-size: 2rem; 
     transition: color 0.3s ease;
     display: inline-block;
     direction: ltr;
+    line-height: 1.2;
 }
 
+/* بزرگ‌تر شدن دکمه آیکون تماس کنار شماره مطابق با فونت جدید */
 .inline-call-btn {
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     margin-right: 4px;
     vertical-align: middle;
 }
@@ -603,7 +607,7 @@ header {
     display: none;
     font-size: 0.85rem;
     color: var(--gold-hover);
-    margin-top: 2px;
+    margin-top: 4px;
     font-weight: normal;
 }
 
@@ -789,5 +793,10 @@ footer {
     .header-social-item {
         width: 32px;
         height: 32px;
+    }
+    
+    /* تنظیم اندازه شماره تماس در موبایل‌های بسیار کوچک برای جلوگیری از سرریز شدن */
+    .phone-link {
+        font-size: 1.6rem;
     }
 }
