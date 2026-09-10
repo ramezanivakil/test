@@ -421,7 +421,7 @@ header {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    animation: flipCoin 4s linear infinite;
+    animation: flipCoin 6s linear infinite;
     transform-style: preserve-3d;
     filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.35));
 }
