@@ -369,7 +369,6 @@ header {
 .hero-text {
     color: #ffffff;
     z-index: 2;
-    transform: translateX(-55px); /* جابه‌جایی ستون متن به سمت چپ (می‌توانید مقدار را کم یا زیاد کنید) */
 }
 
 .hero-text .lawyer-name {
@@ -450,13 +449,26 @@ header {
     object-fit: contain;
     display: block;
     margin: 0 auto;
-    transform: translateX(-50px); /* جابه‌جایی عکس به سمت چپ (می‌توانید این مقدار را کم یا زیاد کنید) */
     filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
     transition: transform 0.3s ease;
 }
 
 .hero-image img:hover {
-    transform: translateX(-50px) scale(1.02);
+    transform: scale(1.02);
+}
+/* اعمال جاب‌جایی به سمت چپ فقط در نمایشگرهای بزرگ (دسکتاپ) */
+@media screen and (min-width: 993px) {
+    .hero-text {
+        transform: translateX(-35px); /* جابه‌جایی متن به چپ در دسکتاپ */
+    }
+
+    .hero-image img {
+        transform: translateX(-30px); /* جابه‌جایی عکس به چپ در دسکتاپ */
+    }
+
+    .hero-image img:hover {
+        transform: translateX(-30px) scale(1.02);
+    }
 }
 
 /* ==========================================
