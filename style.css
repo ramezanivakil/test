@@ -396,10 +396,10 @@ header {
     font-size: clamp(1.15rem, 1.4vw, 1.3rem);
     font-weight: 700;
     line-height: 1.7;
-    color: #ffd700 !important;
-    background: linear-gradient(135deg, #ffffff 0%, #ffdf00 40%, #cca100 80%, #997500 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffdf00 !important;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
 }
 
