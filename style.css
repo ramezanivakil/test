@@ -90,7 +90,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
 }
 
-.subtitle,
 .logo,
 .contact-info h3,
 .info-item i,
@@ -392,8 +391,9 @@ header {
     line-height: 1.4;
 }
 
+/* زیرعنوان‌های طلایی - ست‌شده با فونت اصلی متن‌ها (var(--font-body)) */
 .hero-text .subtitle {
-    font-family: var(--font-accent);
+    font-family: var(--font-body) !important;
     font-size: clamp(1rem, 1.2vw, 1.15rem);
     font-weight: 700;
     line-height: 1.8;
