@@ -369,8 +369,7 @@ header {
 .hero-text {
     color: #ffffff;
     z-index: 2;
-   text-align: center; /* قرار گرفتن متن‌ها در حالت مرکزچین */
-    }
+   }
 
 .hero-text .lawyer-name {
     font-family: var(--font-heading);
@@ -380,6 +379,7 @@ header {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     margin-bottom: 1.0rem;
     line-height: 1.5;
+   text-align: center; /* قرار گرفتن متن‌ها در حالت مرکزچین */
    }
 
 .hero-text h1 {
