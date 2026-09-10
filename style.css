@@ -549,7 +549,7 @@ header {
     line-height: 1.8;
 }
 
-/* انیمیشن و استایل فلش متحرک معکوس (اندازه دو برابر: 2.8rem) */
+/* انیمیشن و استایل فلش متحرک معکوس */
 @keyframes pulseArrowReverse {
     0% { transform: translateX(0); }
     50% { transform: translateX(6px); }
@@ -583,19 +583,18 @@ header {
     flex-wrap: wrap;
 }
 
-/* فونت و اندازه شماره تماس دو برابر شده است (2rem) */
+/* اندازه شماره تماس */
 .phone-link {
     color: var(--gold-hover);
     text-decoration: none;
     font-weight: 800;
-    font-size: 1.5rem; 
+    font-size: 2rem; 
     transition: color 0.3s ease;
     display: inline-block;
     direction: ltr;
     line-height: 1.2;
 }
 
-/* بزرگ‌تر شدن دکمه آیکون تماس کنار شماره مطابق با فونت جدید */
 .inline-call-btn {
     width: 44px;
     height: 44px;
@@ -656,12 +655,14 @@ header {
     gap: 1rem;
 }
 
-/* راست‌چین کردن کامل فیلدهای فرم از جمله شماره تماس */
+/* ==========================================================
+   تغییرات جدید: زمینه کاملاً سفید باکس‌های فیلد و متن راهنما
+   ========================================================== */
 .form-group input, 
 .form-group textarea {
     width: 100%;
     padding: 0.8rem 1rem;
-    background-color: var(--bg-secondary);
+    background-color: #ffffff !important; /* پس‌زمینه سفید برای باکس‌ها */
     border: 1px solid var(--border-color);
     border-radius: 8px;
     color: var(--text-primary);
@@ -672,10 +673,17 @@ header {
     direction: rtl;
 }
 
+/* کوچک‌تر شدن متن راهنما (Placeholder) به اندازه یک سایز */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    font-size: 0.88rem !important; /* کوچکتر شده نسبت به متن اصلی */
+    color: #94a3b8;
+}
+
 .form-group input:focus, 
 .form-group textarea:focus {
     outline: none;
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     border-color: var(--gold-primary);
     box-shadow: 0 0 0 3px var(--gold-shadow);
 }
@@ -795,8 +803,7 @@ footer {
         height: 32px;
     }
     
-    /* تنظیم اندازه شماره تماس در موبایل‌های بسیار کوچک برای جلوگیری از سرریز شدن */
     .phone-link {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 }
