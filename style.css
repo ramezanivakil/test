@@ -1,5 +1,5 @@
 /* ==========================================================================
-   کد کامل و بهینه‌شده CSS برای وب‌سایت خدمات حقوقی و وکالت
+   کد کامل و به‌روزرسانی‌شده CSS برای وب‌سایت خدمات حقوقی و وکالت
    ========================================================================== */
 
 /* ==========================================
@@ -356,13 +356,13 @@ header {
 }
 
 .hero {
-    padding: 30px 2rem 35px 2rem;
-    max-width: 1250px;
+    padding: 20px 1rem 25px 1rem;
+    max-width: 1300px;
     margin: 0 auto;
     width: 100%;
     display: grid;
-    grid-template-columns: 160px 1fr 420px;
-    gap: 2rem;
+    grid-template-columns: 150px 1fr 480px;
+    gap: 1.5rem;
     align-items: center;
 }
 
@@ -390,7 +390,7 @@ header {
     line-height: 1.35;
 }
 
-/* زیرعنوان‌های طلایی براق و بزرگ‌تر */
+/* زیرعنوان‌های طلایی روشن و یکدست (بدون گرادینت) */
 .hero-text .subtitle {
     font-family: var(--font-body) !important;
     font-size: clamp(1.15rem, 1.4vw, 1.3rem);
@@ -437,13 +437,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible;
 }
 
 .hero-image img {
     width: 100%;
-    max-width: 480px;
+    max-width: 520px;
     height: auto;
-    max-height: 5000px;
+    max-height: 540px;
     object-fit: contain;
     display: block;
     margin: 0 auto;
@@ -748,8 +749,8 @@ footer {
     .hero .logo-order { order: 3; }
 
     .hero-image img {
-        max-width: 350px;
-        max-height: 380px;
+        max-width: 380px;
+        max-height: 420px;
     }
 
     .spinner-logo {
@@ -800,8 +801,8 @@ footer {
     }
 
     .hero-image img {
-        max-width: 270px;
-        max-height: 320px;
+        max-width: 300px;
+        max-height: 350px;
     }
 
     .spinner-logo {
