@@ -382,7 +382,7 @@ header {
 }
 
 .hero-text h1 {
-    font-size: clamp(1.3rem, 1.8vw, 1.8rem);
+    font-size: clamp(1.3rem, 1.5vw, 1.5rem);
     font-weight: 800;
     margin-bottom: 0.8rem;
     color: #ffffff !important;
