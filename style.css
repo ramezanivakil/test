@@ -588,7 +588,7 @@ header {
     color: var(--gold-hover);
     text-decoration: none;
     font-weight: 800;
-    font-size: 2rem; 
+    font-size: 1.5rem; 
     transition: color 0.3s ease;
     display: inline-block;
     direction: ltr;
@@ -797,6 +797,6 @@ footer {
     
     /* تنظیم اندازه شماره تماس در موبایل‌های بسیار کوچک برای جلوگیری از سرریز شدن */
     .phone-link {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 }
