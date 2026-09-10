@@ -113,6 +113,7 @@ header {
     padding: 0.8rem 1.5rem;
 }
 
+/* نوشته لوگوی هدر مشکی شده است */
 .logo {
     font-size: 1.25rem;
     font-weight: 800;
@@ -120,9 +121,9 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #0f172a !important;
+    background: none;
+    -webkit-text-fill-color: initial;
 }
 
 .header-left-action {
@@ -131,7 +132,7 @@ header {
 }
 
 /* ==========================================
-   ۵. نوار آیکون‌های پیام‌رسان و دکمه تماس (با انیمیشن زنگ خوردن)
+   ۵. نوار آیکون‌های پیام‌رسان و دکمه تماس (با آیکون‌ها و رنگ مشکی)
    ========================================== */
 .header-social-bar {
     display: flex;
@@ -148,14 +149,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #0f172a;
+    color: #0f172a;
     transition: all 0.3s ease;
     overflow: hidden;
     flex-shrink: 0;
     cursor: pointer;
     padding: 0;
     text-decoration: none;
+}
+
+.header-social-item i {
+    color: #0f172a;
+    font-size: 1.1rem;
 }
 
 .header-social-item img {
@@ -180,15 +187,22 @@ header {
 
 .header-social-item.call-btn {
     background: transparent;
-    border: 1px solid var(--border-color);
+    border: 1px solid #0f172a;
+    color: #0f172a;
     animation: ringBell 2s infinite ease-in-out;
 }
 
 .header-social-item:hover {
     animation: none;
     transform: translateY(-3px) scale(1.08);
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-    border-color: var(--gold-primary);
+    background-color: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+}
+
+.header-social-item:hover i {
+    color: #ffffff;
 }
 
 /* ==========================================
@@ -666,7 +680,7 @@ footer {
    ========================================== */
 @media screen and (max-width: 992px) {
     .hero-wrapper {
-        padding-top: 85px; /* افزایش پدینگ بالا جهت جلو گیری از رفتن عکس زیر هدر شناور */
+        padding-top: 85px;
     }
 
     .hero {
@@ -697,7 +711,7 @@ footer {
 
 @media screen and (max-width: 600px) {
     .hero-wrapper {
-        padding-top: 80px; /* تنظیم فاصله از هدر برای تبلت و موبایل کوچک */
+        padding-top: 80px;
     }
 
     .hero-text .lawyer-name {
