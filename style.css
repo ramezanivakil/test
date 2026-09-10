@@ -88,7 +88,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo,
 .contact-info h3,
-.info-item i,
 .btn-gold {
     font-family: var(--font-accent);
 }
@@ -550,7 +549,7 @@ header {
     line-height: 1.8;
 }
 
-/* انیمیشن و استایل فلش متحرک برای بخش محل فعالیت */
+/* انیمیشن و استایل فلش متحرک متنی (بدون خطا و مربع) */
 @keyframes pulseArrow {
     0% { transform: translateX(0); }
     50% { transform: translateX(-6px); }
@@ -565,7 +564,8 @@ header {
     border: none !important;
     box-shadow: none !important;
     color: var(--gold-hover) !important;
-    font-size: 1.1rem !important;
+    font-size: 1.4rem !important;
+    line-height: 1 !important;
     margin-top: 4px !important;
     flex-shrink: 0 !important;
     animation: pulseArrow 1.5s infinite ease-in-out !important;
