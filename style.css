@@ -12,13 +12,13 @@
     --font-body: 'CustomZar', Tahoma, sans-serif;      /* فونت متن اصلی */
 
     /* پالت رنگی عمومی */
-    --bg-main: #f8fafc;                               /* پس‌زمینه اصلی روشن */
-    --bg-card: #ffffff;                               /* پس‌زمینه کارت‌ها */
-    --bg-secondary: #f1f5f9;                          /* پس‌زمینه ثانویه */
+    --bg-main: #f8fafc;                                 /* پس‌زمینه اصلی روشن */
+    --bg-card: #ffffff;                                 /* پس‌زمینه کارت‌ها */
+    --bg-secondary: #f1f5f9;                            /* پس‌زمینه ثانویه */
     
-    --text-primary: #0f172a;                          /* رنگ متن اصلی (سرمه‌ای تیره) */
-    --text-muted: #475569;                            /* رنگ متن فرعی */
-    --border-color: #e2e8f0;                          /* رنگ خطوط و کادرها */
+    --text-primary: #0f172a;                            /* رنگ متن اصلی (سرمه‌ای تیره) */
+    --text-muted: #475569;                              /* رنگ متن فرعی */
+    --border-color: #e2e8f0;                            /* رنگ خطوط و کادرها */
 
     /* پالت رنگی طلایی */
     --gold-primary: #f59e0b;
@@ -342,21 +342,21 @@ header {
 }
 
 /* ==========================================
-   ۷. بخش بنر اصلی هیرو (Hero Section - ارتفاع بهینه‌شده)
+   ۷. بخش بنر اصلی هیرو (Hero Section)
    ========================================== */
 .hero-wrapper {
     background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #0b132b 100%);
     width: 100%;
     padding-top: 65px;
     box-shadow: inset 0 -10px 25px rgba(0, 0, 0, 0.3);
-    min-height: auto; /* حذف ارتفاع اجباری شیشه صفحه */
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .hero {
-    padding: 30px 2rem 35px 2rem; /* کاهش پدینگ برای فشرده‌تر شدن */
+    padding: 30px 2rem 35px 2rem;
     max-width: 1250px;
     margin: 0 auto;
     width: 100%;
@@ -390,17 +390,17 @@ header {
     line-height: 1.35;
 }
 
-/* زیرعنوان‌های طلایی - فونت بدنه var(--font-body) */
+/* زیرعنوان‌های طلایی براق و بزرگ‌تر */
 .hero-text .subtitle {
     font-family: var(--font-body) !important;
-    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    font-size: clamp(1.15rem, 1.4vw, 1.3rem);
     font-weight: 700;
     line-height: 1.7;
-    color: #fde047 !important;
-    background: linear-gradient(135deg, #fff085 0%, #facc15 50%, #eab308 100%);
+    color: #ffd700 !important;
+    background: linear-gradient(135deg, #ffffff 0%, #ffdf00 40%, #cca100 80%, #997500 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
 }
 
 .hero-text .subtitle div {
@@ -544,15 +544,8 @@ header {
 .card-content h3 {
     font-size: var(--fs-h3);
     font-family: var(--font-heading);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0;
     color: var(--text-primary);
-}
-
-.card-content p {
-    color: var(--text-muted) !important;
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
-    line-height: 1.7;
 }
 
 /* ==========================================
@@ -737,7 +730,6 @@ footer {
 /* ==========================================
    ۱۱. تنظیمات واکنش‌گرا و موبایل (Responsive)
    ========================================== */
-/* برای تبلت‌ها (Max-Width: 992px) */
 @media screen and (max-width: 992px) {
     .hero-wrapper {
         padding-top: 75px;
@@ -778,7 +770,6 @@ footer {
     }
 }
 
-/* برای گوشی‌های موبایل (Max-Width: 600px) */
 @media screen and (max-width: 600px) {
     .nav-container {
         gap: 0.8rem;
@@ -805,7 +796,7 @@ footer {
     }
 
     .hero-text .subtitle {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
     }
 
     .hero-image img {
