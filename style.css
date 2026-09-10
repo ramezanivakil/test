@@ -549,10 +549,10 @@ header {
     line-height: 1.8;
 }
 
-/* انیمیشن و استایل فلش متحرک متنی (بدون خطا و مربع) */
-@keyframes pulseArrow {
+/* انیمیشن و استایل فلش متحرک معکوس (به سمت راست / متن) */
+@keyframes pulseArrowReverse {
     0% { transform: translateX(0); }
-    50% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
     100% { transform: translateX(0); }
 }
 
@@ -568,15 +568,7 @@ header {
     line-height: 1 !important;
     margin-top: 4px !important;
     flex-shrink: 0 !important;
-    animation: pulseArrow 1.5s infinite ease-in-out !important;
-}
-
-.info-item i:not(.activity-arrow) {
-    color: var(--gold-hover);
-    font-size: 1.1rem;
-    width: 24px;
-    margin-top: 4px;
-    flex-shrink: 0;
+    animation: pulseArrowReverse 1.5s infinite ease-in-out !important;
 }
 
 .phone-wrapper {
