@@ -369,7 +369,11 @@ header {
 .hero-text {
     color: #ffffff;
     z-index: 2;
-   }
+    align-self: center; /* قرارگیری در وسط عمودی هیرو */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .hero-text .lawyer-name {
     font-family: var(--font-heading);
