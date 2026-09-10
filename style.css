@@ -377,8 +377,8 @@ header {
     font-weight: 800;
     color: #ffffff !important;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    margin-bottom: 0.3rem;
-    line-height: 1.2;
+    margin-bottom: 1rem;
+    line-height: 1.4;
 }
 
 .hero-text h1 {
