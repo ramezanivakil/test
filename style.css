@@ -113,6 +113,7 @@ header {
     padding: 0.8rem 1.5rem;
 }
 
+/* نوشته لوگوی هدر مشکی شده است */
 .logo {
     font-size: 1.25rem;
     font-weight: 800;
@@ -131,7 +132,7 @@ header {
 }
 
 /* ==========================================
-   ۵. نوار آیکون‌های پیام‌رسان و دکمه تماس
+   ۵. نوار آیکون‌های پیام‌رسان و دکمه تماس (با آیکون‌ها و رنگ مشکی)
    ========================================== */
 .header-social-bar {
     display: flex;
@@ -171,6 +172,7 @@ header {
     display: block;
 }
 
+/* انیمیشن زنگ خوردن تلفن */
 @keyframes ringBell {
     0% { transform: rotate(0deg) scale(1); }
     10% { transform: rotate(15deg) scale(1.1); }
@@ -435,7 +437,7 @@ header {
 }
 
 /* ==========================================
-   ۸. بخش حوزه‌های فعالیت و تماس با ما
+   ۸. سایر بخش‌ها (Services, Contact)
    ========================================== */
 .services {
     padding: 80px 1.5rem;
@@ -447,10 +449,6 @@ header {
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
 }
 
 .section-title h2 {
@@ -472,16 +470,6 @@ header {
     height: 4px;
     border-radius: 2px;
     background: var(--gold-gradient);
-}
-
-/* آیکون‌های شبکه اجتماعی زیر عنوان بخش خدمات */
-.section-social-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    direction: ltr;
-    margin-top: 5px;
 }
 
 .cards-grid {
@@ -568,19 +556,6 @@ header {
 .contact-info h3 {
     font-size: var(--fs-h3);
     margin-bottom: 1.8rem;
-    color: var(--text-primary);
-}
-
-/* آیکون‌های شبکه اجتماعی در بخش اطلاعات تماس */
-.contact-social-section {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 1.5rem;
-}
-
-.contact-social-section span {
-    font-weight: 600;
     color: var(--text-primary);
 }
 
