@@ -6,27 +6,23 @@
    ۱. متغیرها و تنظیمات اصلی (Variables)
    ========================================== */
 :root {
-    /* تعیین فونت‌های سفارشی */
-    --font-heading: 'CustomTitr', Tahoma, sans-serif;  /* فونت تیترها */
-    --font-accent: 'CustomComps', Tahoma, sans-serif;  /* فونت مکمل و تأکیدی */
-    --font-body: 'CustomZar', Tahoma, sans-serif;      /* فونت متن اصلی */
+    --font-heading: 'CustomTitr', Tahoma, sans-serif;
+    --font-accent: 'CustomComps', Tahoma, sans-serif;
+    --font-body: 'CustomZar', Tahoma, sans-serif;
 
-    /* پالت رنگی عمومی */
-    --bg-main: #f8fafc;                                 /* پس‌زمینه اصلی روشن */
-    --bg-card: #ffffff;                                 /* پس‌زمینه کارت‌ها */
-    --bg-secondary: #f1f5f9;                            /* پس‌زمینه ثانویه */
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-secondary: #f1f5f9;
     
-    --text-primary: #0f172a;                            /* رنگ متن اصلی (سرمه‌ای تیره) */
-    --text-muted: #475569;                              /* رنگ متن فرعی */
-    --border-color: #e2e8f0;                            /* رنگ خطوط و کادرها */
+    --text-primary: #0f172a;
+    --text-muted: #475569;
+    --border-color: #e2e8f0;
 
-    /* پالت رنگی طلایی */
     --gold-primary: #f59e0b;
     --gold-hover: #d97706;
     --gold-gradient: linear-gradient(135deg, #fff085 0%, #facc15 50%, #eab308 100%);
     --gold-shadow: rgba(250, 204, 21, 0.4);
 
-    /* اندازه‌های پایه فونت */
     --fs-h1: 2rem;
     --fs-name: 2.3rem;
     --fs-h2: 1.75rem;
@@ -127,9 +123,6 @@ header {
     display: flex;
     align-items: center;
     color: #0f172a !important;
-    background: none;
-    -webkit-text-fill-color: initial;
-    white-space: nowrap;
 }
 
 .header-left-action {
@@ -166,11 +159,6 @@ header {
     text-decoration: none;
 }
 
-.header-social-item i {
-    color: #0f172a;
-    font-size: 1rem;
-}
-
 .header-social-item img {
     width: 100%;
     height: 100%;
@@ -204,10 +192,6 @@ header {
     color: #ffffff;
     border-color: #0f172a;
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
-}
-
-.header-social-item:hover i {
-    color: #ffffff;
 }
 
 /* ==========================================
@@ -264,10 +248,6 @@ header {
     transition: color 0.2s;
 }
 
-.modal-close:hover {
-    color: var(--text-primary);
-}
-
 .modal-icon {
     width: 60px;
     height: 60px;
@@ -319,12 +299,6 @@ header {
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s;
-}
-
-.copy-btn:hover {
-    background-color: var(--gold-primary);
-    color: #ffffff;
-    border-color: var(--gold-primary);
 }
 
 .copy-toast {
@@ -397,10 +371,6 @@ header {
     font-weight: 700;
     line-height: 1.7;
     color: #ffdf00 !important;
-    background: none;
-    -webkit-background-clip: initial;
-    -webkit-text-fill-color: initial;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
 }
 
 .hero-text .subtitle div {
@@ -437,7 +407,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: visible;
 }
 
 .hero-image img {
@@ -450,10 +419,6 @@ header {
     margin: 0 auto;
     filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
     transition: transform 0.3s ease;
-}
-
-.hero-image img:hover {
-    transform: scale(1.02);
 }
 
 /* ==========================================
@@ -547,7 +512,6 @@ header {
     font-family: var(--font-heading);
     margin-bottom: 0;
     color: var(--text-primary);
-    text-align: center;
 }
 
 /* ==========================================
@@ -586,24 +550,33 @@ header {
     line-height: 1.8;
 }
 
-/* انیمیشن فلش متحرک برای بخش محل فعالیت */
+/* انیمیشن و استایل فلش متحرک برای بخش محل فعالیت */
 @keyframes pulseArrow {
     0% { transform: translateX(0); }
     50% { transform: translateX(-6px); }
     100% { transform: translateX(0); }
 }
 
-.info-item i {
+.info-item .activity-arrow {
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--gold-hover) !important;
+    font-size: 1.1rem !important;
+    margin-top: 4px !important;
+    flex-shrink: 0 !important;
+    animation: pulseArrow 1.5s infinite ease-in-out !important;
+}
+
+.info-item i:not(.activity-arrow) {
     color: var(--gold-hover);
     font-size: 1.1rem;
     width: 24px;
     margin-top: 4px;
     flex-shrink: 0;
-    animation: pulseArrow 1.5s infinite ease-in-out;
-}
-
-.phone-item {
-    align-items: flex-start;
 }
 
 .phone-wrapper {
@@ -625,11 +598,6 @@ header {
     transition: color 0.3s ease;
     display: inline-block;
     direction: ltr;
-}
-
-.phone-link:hover {
-    color: var(--gold-primary);
-    text-decoration: underline;
 }
 
 .inline-call-btn {
@@ -678,6 +646,7 @@ header {
     font-size: var(--fs-body);
     box-shadow: 0 6px 20px var(--gold-shadow);
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .btn-gold:hover {
@@ -691,6 +660,7 @@ header {
     gap: 1rem;
 }
 
+/* راست‌چین کردن کامل فیلدهای فرم از جمله شماره تماس */
 .form-group input, 
 .form-group textarea {
     width: 100%;
@@ -702,7 +672,7 @@ header {
     font-family: var(--font-body);
     font-size: var(--fs-body);
     transition: all 0.3s ease;
-    text-align: right; /* راست‌چین کردن متن و مکان‌نما در فیلدهای فرم (از جمله شماره تماس) */
+    text-align: right;
     direction: rtl;
 }
 
@@ -750,10 +720,6 @@ footer {
     .hero-image img {
         transform: translateX(-80px);
     }
-
-    .hero-image img:hover {
-        transform: translateX(-80px) scale(1.02);
-    }
 }
 
 @media screen and (max-width: 992px) {
@@ -782,11 +748,6 @@ footer {
 
     .hero-text {
         transform: none !important;
-    }
-
-    .spinner-logo {
-        width: 130px;
-        height: 130px;
     }
 
     .cards-grid {
@@ -819,28 +780,10 @@ footer {
 
     .hero-text .lawyer-name {
         font-size: 1.45rem;
-        white-space: normal;
     }
 
     .hero-text h1 {
         font-size: 1.2rem;
-        line-height: 1.4;
-    }
-
-    .hero-text .subtitle {
-        font-size: 1.05rem;
-    }
-
-    .hero-image img {
-        max-width: 300px;
-        max-height: 350px;
-        transform: none !important;
-        margin: 0 auto;
-    }
-
-    .spinner-logo {
-        width: 100px;
-        height: 100px;
     }
 
     .cards-grid {
@@ -854,9 +797,5 @@ footer {
     .header-social-item {
         width: 32px;
         height: 32px;
-    }
-    
-    .header-social-bar {
-        gap: 6px;
     }
 }
