@@ -449,6 +449,7 @@ header {
     object-fit: contain;
     display: block;
     margin: 0 auto;
+    transform: translateX(-30px); /* جابه‌جایی عکس به سمت چپ (می‌توانید این مقدار را کم یا زیاد کنید) */
     filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
     transition: transform 0.3s ease;
 }
