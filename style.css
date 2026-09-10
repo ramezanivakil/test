@@ -585,6 +585,13 @@ header {
     flex-direction: column;
 }
 
+.phone-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .phone-link {
     color: var(--gold-hover);
     text-decoration: none;
@@ -597,6 +604,14 @@ header {
 .phone-link:hover {
     color: var(--gold-primary);
     text-decoration: underline;
+}
+
+/* استایل اختصاصی آیکون تماس کنار شماره */
+.inline-call-btn {
+    width: 32px;
+    height: 32px;
+    margin-right: 4px;
+    vertical-align: middle;
 }
 
 .mobile-only-msg {
