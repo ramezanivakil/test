@@ -391,7 +391,6 @@ header {
     line-height: 1.35;
 }
 
-/* زیرعنوان‌های طلایی روشن و یکدست (بدون گرادینت) */
 .hero-text .subtitle {
     font-family: var(--font-body) !important;
     font-size: clamp(1.15rem, 1.4vw, 1.3rem);
@@ -540,7 +539,7 @@ header {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    text-align: center; /* تغییر به وسط‌چین برای عناوین درون کارت‌ها */
+    text-align: center;
 }
 
 .card-content h3 {
@@ -548,7 +547,7 @@ header {
     font-family: var(--font-heading);
     margin-bottom: 0;
     color: var(--text-primary);
-    text-align: center; /* وسط‌چین کردن عناوین کارت‌ها */
+    text-align: center;
 }
 
 /* ==========================================
@@ -587,12 +586,20 @@ header {
     line-height: 1.8;
 }
 
+/* انیمیشن فلش متحرک برای بخش محل فعالیت */
+@keyframes pulseArrow {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
+}
+
 .info-item i {
     color: var(--gold-hover);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     width: 24px;
     margin-top: 4px;
     flex-shrink: 0;
+    animation: pulseArrow 1.5s infinite ease-in-out;
 }
 
 .phone-item {
@@ -695,6 +702,8 @@ header {
     font-family: var(--font-body);
     font-size: var(--fs-body);
     transition: all 0.3s ease;
+    text-align: right; /* راست‌چین کردن متن و مکان‌نما در فیلدهای فرم (از جمله شماره تماس) */
+    direction: rtl;
 }
 
 .form-group input:focus, 
@@ -734,12 +743,10 @@ footer {
    ۱۱. تنظیمات واکنش‌گرا و موبایل (Responsive)
    ========================================== */
 @media screen and (min-width: 993px) {
-    /* انتقال متن‌های هیرو به سمت چپ در دسکتاپ (مقدار منفی بیشتر) */
     .hero-text {
         transform: translateX(-70px);
     }
 
-    /* انتقال عکس وکیل به سمت چپ در دسکتاپ */
     .hero-image img {
         transform: translateX(-80px);
     }
@@ -773,7 +780,6 @@ footer {
         margin: 0 auto;
     }
 
-    /* حفظ حالت وسط‌چین متن‌ها در موبایل */
     .hero-text {
         transform: none !important;
     }
